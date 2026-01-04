@@ -1,0 +1,3122 @@
+title,body,label_name,label,url
+Replace edit tool failure: `Error: acceptResponseProgress: Adding progress to a completed response`,"```
+ERR [LanguageModelToolsService#invokeTool] Error from tool copilot_replaceString with parameters {""filePath"":""c:\\Users\\alros\\repos\\Microsoft\\vscode\\src\\vs\\platform\\theme\\browser\\iconsStyleSheet.ts"",""oldString"":""\t\tconst rules = new css.Builder();\n\t\tconst rootAttribs = new css.Builder();\n\t\trules.push(css.inline`@font-face { font-family: \""codicon\""; font-display: block; src: ${css.asCSSUrl(FileAccess.asFileUri(getModuleLocation(environmentService)).with({ query: '5d4d76ab2ce5108968ad644d591a16a6' }))} format(\""truetype\"");}`);\n\t\tfor (const contribution of iconRegistry.getIcons()) {"",""newString"":""\t\tconst rules = new css.Builder();\n\t\tconst rootAttribs = new css.Builder();\n\t\tconst moduleLocation = getModuleLocation(environmentService);\n\t\tconst fileUri = FileAccess.asFileUri(moduleLocation);\n\t\tconst fileUriWithQuery = fileUri.with({ query: '5d4d76ab2ce5108968ad644d591a16a6' });\n\t\tconst cssUrl = css.asCSSUrl(fileUriWithQuery);\n\t\trules.push(css.inline`@font-face { font-family: \""codicon\""; font-display: block; src: ${cssUrl} format(\""truetype\"");}`);\n\t\tfor (const contribution of iconRegistry.getIcons()) {""}:
+acceptResponseProgress: Adding progress to a completed response: Error: acceptResponseProgress: Adding progress to a completed response
+    at krt.acceptResponseProgress (vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code%20Insiders/7c62052af6/resources/app/out/vs/workbench/workbench.desktop.main.js:1940:7412)
+    at tut.appendProgress (vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code%20Insiders/7c62052af6/resources/app/out/vs/workbench/workbench.desktop.main.js:2266:29876)
+    at fgt.invokeTool (vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code%20Insiders/7c62052af6/resources/app/out/vs/workbench/workbench.desktop.main.js:2332:5135)
+    at async xZt.$invokeTool (vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code%20Insiders/7c62052af6/resources/app/out/vs/workbench/workbench.desktop.main.js:520:17995)
+```
+
+
+[074a05db.copilotmd.txt](https://github.com/user-attachments/files/24526346/074a05db.copilotmd.txt)",bug,0,https://github.com/microsoft/vscode/issues/286731
+Wasted space in CommentThread,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes (only mine)
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version: 1.103
+- OS Version: Windows 10
+
+Steps to Reproduce:
+
+- Using `createCommentThread()` , create a thread with 4 comment and no reaction and no reationHandler
+- The thread take the whole screen after only 4 comments
+- The bottom padding seems reserved for the reactions buttons, even wen no reaction handler exist see:
+
+<img width=""1030"" height=""695"" alt=""image"" src=""https://github.com/user-attachments/assets/a5270b2a-3623-498f-822d-82b3b309cb85"" />
+
+My thread has not reaction handler, and none of my comment declare any reactions.
+In my opinion, this space shall not be reserved/wasted and leave more space for the actual messages.
+
+",bug,0,https://github.com/microsoft/vscode/issues/286699
+"The ""Helpful"" button's pressed state is not being announced by the screen reader: A11y_Visual Studio Code Client_Usability","### GitHub Tags:
+#A11yTCS; #A11ySev3;#Visual Studio Code Client;#BM_VisualStudioCodeClient_Win32_JULY2024; #DesktopApp; #Win32; #Benchmark;#A11yMAS;#WCAG4.1.2;#Name Role Value;
+
+### Environment and OS details:
+Application: VS Code
+Version: 1.108.0-insider (user setup)
+
+### Reproduction Steps:
+
+1. Open Visual studio code insider.
+2. Tab to Source Controls (or use Ctrl+Shift+G) and open it. 
+3. Tab on Copilot Code Review button and select it. 
+4. Tab to Helpful control and select it. 
+6. Verify whether screen reader is announcing the pressed state or not. 
+
+### Actual Result:
+The ""Helpful"" button's pressed state is not being announced by the screen reader.
+
+### Expected Result:
+When the ""Helpful"" button is toggled:
+Pressed State: The screen reader should announce ""Helpful button pressed.""
+
+### User Impact:
+Users relying on screen readers may not understand whether the button is active or inactive, leading to confusion and usability challenges.
+
+### Attachment:
+
+https://github.com/user-attachments/assets/880c7a49-8106-4a3d-95af-c5a39bc17870
+",bug,0,https://github.com/microsoft/vscode/issues/286696
+Source Control View no longer opens with Ctrl+Shift+G,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes/No
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version: 1.108.0
+- OS Version: Windows 11
+
+Steps to Reproduce:
+
+1. Press `Ctrl`+`Shift`+`G`
+2. Source Control View is not opening
+
+shortcut is still there and I have not added any shortcut with same keybinding
+<img width=""1449"" height=""318"" alt=""Image"" src=""https://github.com/user-attachments/assets/7e3e08d9-cf5f-4d47-80e0-734f5c2c3f5c"" />
+",bug,0,https://github.com/microsoft/vscode/issues/286669
+It is recommended that the update log can be translated into the user's current language via AI.,"
+Type: <b>Feature Request</b>
+
+It’s quite strenuous for non-English users to read English content, and the user experience would be significantly enhanced if AI-powered automatic translation could be implemented.
+
+VS Code version: Code 1.108.0 (94e8ae2b28cb5cc932b86e1070569c4463565c37, 2026-01-08T13:53:10.781Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+
+
+<!-- generated by issue reporter -->",feature-request,1,https://github.com/microsoft/vscode/issues/286652
+MCP Sampling with Tools,"
+Type: <b>Feature Request</b>
+
+The latest versions of the Model Context Protocol and FastMCP support ""sampling WITH TOOLS"" (see: https://modelcontextprotocol.io/specification/2025-11-25/client/sampling and https://gofastmcp.com/servers/sampling#sampling-with-tools). When trying this with VS-Code an error is reported: `Client does not support sampling with tools. The client must advertise the sampling.tools capability.`. It would be nice to see this supported.
+
+VS Code version: Code 1.107.1 (Universal) (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Darwin arm64 25.1.0
+Modes:
+
+
+<!-- generated by issue reporter -->",feature-request,1,https://github.com/microsoft/vscode/issues/286648
+Want updated status in Copilot status bar if background agent requires input,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+Ref https://github.com/microsoft/vscode-internalbacklog/issues/6527
+
+- Kick off a background agent
+- The agent requires input
+- I expected its info in the Copilot status bar (both in the message and the icon) to reflect the need for input
+
+<img width=""468"" height=""697"" alt=""Image"" src=""https://github.com/user-attachments/assets/fba24819-9c20-4871-bf8c-4bdabe155c34"" />
+
+I know we've discussed a variety of ways to draw user attention more closely when an agent requires input, but I thought we might not have an issue discussing this option, so opening here.",feature-request,1,https://github.com/microsoft/vscode/issues/286635
+`Show Agent Sessions Sidebar` doesn't appear on narrower editor instance,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+
+Ref https://github.com/microsoft/vscode-internalbacklog/issues/6527
+
+- I was running two different instances of the same app in separate VS Code windows, side-by-side so that I could compare different agentic results on the same prompts
+- ❓ Selecting `Show Agent Sessions Sidebar` didn't actually display the sidebar, which felt like an unexpected no-op (since I didn't think my editor instance was that narrow)
+
+https://github.com/user-attachments/assets/34b28571-4d9f-4adc-875d-2bff0a1e2f3e
+
+I'm not sure if we can do much here, but I figured I'd still report it for discussion.
+
+
+",bug,0,https://github.com/microsoft/vscode/issues/286634
+Integrated Browser: copy/paste keyboard shortcuts not working,"- VS Code Version: 1.109.0-insider
+- OS Version: macOS Tahoe 26.2
+
+**Steps to Reproduce:**
+1. In command palette, run: ""Browser: Open Integrated Browser""
+2. Open any website that has text and a textbox, such as wikipedia.org
+3. 🐛 Try to copy the text using Ctrl/Cmd + C and paste it into the textbox using Ctrl/Cmd + V. Neither copy nor paste work.
+
+**Expected behavior:**
+Copy/Paste shortcuts should work as expected
+
+**Note:**
+Copy/Paste works only if you do it from VS Code's Edit menu via mouse clicks",bug,0,https://github.com/microsoft/vscode/issues/286633
+Slow chat switching- keep ChatModel in memory for a bit,"- Open large chat session, it's slow to open
+- Switch to some other chat session
+- Open the large one again immediately- it's slow to open 😢 
+
+Seems we can keep it in memory for some timeout (assuming we don't make it faster to open)",bug,0,https://github.com/microsoft/vscode/issues/286611
+Chat subagent UX,"Today subagents are run synchronously (the orchestrator agent is blocked until they are complete) and not in parallel (if it starts multiple subagents via parallel tool calls, they are run one at a time).
+
+The goal for this month is to run sync subagents in parallel and to have decent UX for this. We can brainstorm about subagents that are spawned in the background and do not block the main agent, but I think it's a much more complex scenario.
+
+Run subagents in parallel: https://github.com/microsoft/vscode/issues/274630
+
+For a subagent, I would like to see
+- The name of the custom agent being used (if applicable)
+- The task description for the subagent (shown today, with a spinner)
+- Something about what the subagent is currently working on
+- The final text that the subagent returned (not by default, but on a click or something)
+
+And I think I'd like to see this for all subagents currently running in parallel
+
+Some things to consider
+- How are tool confirmations shown for the individual subagent?
+- Do we need to ensure that the user will always see confirmations in the viewport, even when there are several subagents and a short viewport?
+- How much of the subagent's history do I see? Just the latest tool or more?
+- Do we call them subagents, agents (overloaded), something else?
+- Special handling for edits?
+
+The simplest possible thing that comes to mind is something like the thinking blocks we have today.
+- The title shows the custom agent name (if set, or just 'subagent') and the task description
+- In the box we only show the current tool. One can click to expand.
+- We don't show the thinking text, at least for now.
+- When you expand a finished subagent, you also see the final text returned to the orchestrator.
+- Confirmations show inside the box
+
+<img width=""491"" height=""101"" alt=""Image"" src=""https://github.com/user-attachments/assets/bd7c62a8-2d63-493e-9c74-ba9d50f1bc39"" />
+
+<img width=""486"" height=""93"" alt=""Image"" src=""https://github.com/user-attachments/assets/06cabec7-c0e6-45cf-9f34-fdaf1b617988"" />
+
+Some other things to think about, tying this to other explorations from Joanna
+- Should we pull confirmations out of the individual subagent box and show them next to the input? For all tool confirmations, not just for subagents?
+  - In this case, need a way to know which subagent the confirmation belongs to, maybe click a button to reveal
+- Should there be a more structured output for subagents, eg showing the individual edits that came from the subagent?
+- Can we associate TODOs and subagents, to show the chat response trajectory in a more structured way?
+  - I'm not sure we can really do this today, I think that an agent trajectory is sometimes less linear than its TODOs suggest
+  - But let's keep it in mind if we get TODOs rendering like this
+- What is the fundamental difference between subagent orchestration and multi-agent orchestration? Is there a world where we render them more similarly?
+- If we develop better UI for background terminals, think about whether background subagents should be shown in a similar way
+
+Also see https://github.com/microsoft/vscode-internalbacklog/issues/6539",feature-request,1,https://github.com/microsoft/vscode/issues/286606
+Timeout parameter on terminal tool,"Opus has done this 1000 times in my current session. Should the terminal tool have a timeout parameter so it doesn't feel the need to use this command?
+
+<img width=""592"" height=""182"" alt=""Image"" src=""https://github.com/user-attachments/assets/b028fd18-41ee-4285-ac3a-1bacb245309c"" />
+
+Maybe there is already an issue for this, not a new idea I think",feature-request,1,https://github.com/microsoft/vscode/issues/286598
+Color contrast issue with chat welcome text,"Discovered via automated testing https://github.com/microsoft/vscode/pull/286446
+
+<img width=""962"" height=""531"" alt=""Image"" src=""https://github.com/user-attachments/assets/f19a74f3-cf16-4462-8bc7-424b4ca3a81f"" />",bug,0,https://github.com/microsoft/vscode/issues/286594
+"Auto-expand chat terminal output on terminal command execution, collapse on success",We'll want a setting to configure this. Idea from @Tyriar ,feature-request,1,https://github.com/microsoft/vscode/issues/286593
+Chat welcome message links lack sufficient differentiation,"From an accessiblity perspective, links need to be distinguished by more than just color. We want links to have an underline on hover and focus like they do in the settings UI. 
+
+Discovered via automated testing. 
+
+https://github.com/user-attachments/assets/4c4d2f51-4288-47e2-9a9f-89103e253a14
+
+",bug,0,https://github.com/microsoft/vscode/issues/286587
+terminal suggest details widget has formatting issue,"There should be a newline between `valueSelection` and `index`
+
+<img width=""1748"" height=""474"" alt=""Image"" src=""https://github.com/user-attachments/assets/1dfb1138-d3d4-4ebb-92b6-5cf5ea385b37"" />
+
+",bug,0,https://github.com/microsoft/vscode/issues/286583
+Integrated Browser V1,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+
+### Summary
+Replace VS Code's Simple Browser with an integrated browser that supports AI-assisted web development workflows. Users can visually select DOM elements, capture screenshots, and export context (HTML, CSS, error logs) directly to AI tools for debugging, modification, and implementation assistance.Context/Background
+
+
+### Developers frequently need to:
+- Inspect live web pages and communicate specific elements to AI assistants
+- Debug rendering issues and share visual + code context efficiently
+- Iterate on UI changes with AI by providing precise element selection
+- Switch between internal preview and external browser testing
+
+Without integrated selection and context export, developers resort to manual copying of HTML, taking separate screenshots, and describing elements verbally—a slow, error-prone process that breaks flow.
+
+### Description
+Build an integrated browser extension for VS Code that maintains all Simple Browser functionality:
+
+Core Capabilities (Simple Browser Parity)
+- Launch browser via command palette, editor context menu, and custom UI
+- Navigate to any external URL with address bar
+- Open current page in external browser (Chrome, Edge, default system browser)
+- Element Selection
+  - Element Selection Mode: Click to select DOM elements, with visual highlighting
+  - Multi-element Selection: Hold modifier key (Ctrl/Cmd) to select multiple elements or maybe it is always continuous with no need to use a key.
+  - Context Export: Selected elements export as structured context including may include code and screenshots
+  - On hover show element details (default Chrome popover)
+- Ability to update settings
+- Open browser content in standalone VS Code window (detached view)
+
+New:
+- Ability to open more than one browser instance at a time (on Simple Browser, it's limited to a single instance)
+- When in its own window have a simple way to send a prompt to the the main prompt area
+- Toggle Browser Developer Tools
+- Create a setting to choose between the old and new browser experiences, this setting will be used to drive the rollout
+- Allow the browser to remember the last URL that was loaded into the browser
+- Ability to open links from chat output
+
+Out of scope:
+- Select an area of the browser canvas to take a screenshot of
+- Testing responsiveness based on predetermined browser sizes
+- When an error, have one click ability to send logs as context
+- Create a null state for when the integrated browser get launched
+- Bookmark URLs to help with forgetting what port things are on
+
+Related:
+- https://github.com/microsoft/vscode/issues/277298",feature-request,1,https://github.com/microsoft/vscode/issues/286579
+Leaked disposable in RectangleRenderer,"Repro:
+
+1. Open Code OSS, enable gpu
+2. Open terminalInstance.ts
+3. Open runInTerminalTool.ts, switch between them a few times
+
+<img width=""1082"" height=""364"" alt=""Image"" src=""https://github.com/user-attachments/assets/d2b7cdda-9c61-455e-b64d-faa0fd6f9606"" />",bug,0,https://github.com/microsoft/vscode/issues/286569
+Automatically clean up or archive stale copilot chat sessions after Inactivity and task completion in agent mode,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+
+Today VSCode cleans up the chat history of GH Copilot every time that it gets restarted, once this happens the user sees a list of the historic sessions in case the user wants to resume the work from one of them.
+
+VSCode might consider a similar approach for sessions that have been inactive for a long period of time, and when using agent mode when their finished without an stop reason.
+
+Why? The user might have already finished the work that was doing and after a period of time might resume the work picking a different task where the current chat history is unrelated to it.
+
+Today as a developer and user of VSCode I have to manually restart the session, making a click to the + icon, two or three times a day. Wondering how many users are missing to do so and they are starting new work by polluting the context with the previous work. 
+
+We might consider on showing a pop up with a clear ask about if the user wants to continue with the current session or wants to start a new one rather than eagerly start a new one. This would still allow users that want to keep using the same session  to do so without having to go through the history chat list
+",feature-request,1,https://github.com/microsoft/vscode/issues/286567
+Draw active indication atop the activity bar icons when shown at the bottom,"* set activity bar position > bottom
+* notice how the active indidator (the underline) still renders below. IMO would be nice above
+
+<img width=""326"" height=""170"" alt=""Image"" src=""https://github.com/user-attachments/assets/3b095b6d-e3ce-4cec-b856-dd94804ae6c9"" />",feature-request,1,https://github.com/microsoft/vscode/issues/286566
+Switching to a competed session with handoff (like Plan) doesn't show handoffs,"
+Type: <b>Bug</b>
+
+STR:
+- Start a chat in plan agent
+- Back to agent sessions
+- Open completed plan agent sessions
+- 🐛 No handoffs shown
+
+<img width=""721"" height=""346"" alt=""Image"" src=""https://github.com/user-attachments/assets/2c97dab3-938f-48d7-b9a3-4f0ef3305c1d"" />
+
+VS Code version: Code - Insiders 1.108.0-insider (Universal) (3d862df21449d5ead0b0b1fbe6d43eb05490cb1c, 2026-01-07T05:04:22.606Z)
+OS version: Darwin arm64 25.2.0
+Modes:
+
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|Apple M4 Pro (14 x 2400)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: enabled_on<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|7, 17, 19|
+|Memory (System)|24.00GB (0.11GB free)|
+|Process Argv|--log trace --crash-reporter-id 9b206efe-c338-4f34-baff-2aab1c48a82e|
+|Screen Reader|no|
+|VM|0%|
+</details>
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/286555
+"Add a way to attach output to a test, without it being added to the main test run output.","When running tests, there is the main output panel for the test run, and each test has an output panel. 
+
+I would like it that when tests run, the main output panel only contains the progress, and a summary of the test results, and the test output panel should contain the full output for the test.
+
+Currently, when attaching output to a test with `TestRun.appendOutput`, it gets added to both the test output and the main output.
+
+> This is as the API is designed (and changing it would be a breaking change at this point.) `appendOutput` is used for messages that appear in the console output of the test run.
+
+ _Originally posted by @connor4312 in [#200715](https://github.com/microsoft/vscode/issues/200715#issuecomment-1854341304)_
+
+Please add a way in the API to attach output to a test, without it being added to the main TestRun output.
+",feature-request,1,https://github.com/microsoft/vscode/issues/286533
+Chat layout getItemsWidth is very expensive,"Pretty full chat session with the workbench in the following state:
+
+<img width=""2558"" height=""1399"" alt=""Image"" src=""https://github.com/user-attachments/assets/7672a954-b408-45b9-92eb-9d2ea42dde08"" />
+
+I type into the input and the lag is very noticeable. Taking a trace reveals FPS drops significantly because of layout thrashing in getItemsWidth:
+
+<img width=""2365"" height=""1499"" alt=""Image"" src=""https://github.com/user-attachments/assets/7c029cdc-cc0e-46e5-bddb-d4a3f1e2a92b"" />
+
+<img width=""1982"" height=""1550"" alt=""Image"" src=""https://github.com/user-attachments/assets/7eb01089-21f4-448f-9b86-dfd3de126127"" />
+
+[Trace-20260108T043831.json](https://github.com/user-attachments/files/24495339/Trace-20260108T043831.json)
+
+This even happens when chat is not doing anything, purely typing into the input causes it.
+
+Maybe related to https://github.com/microsoft/vscode/issues/286304 cc @mrleemurray ",bug,0,https://github.com/microsoft/vscode/issues/286531
+AI related quick picker accessible even when AI disabled,"Steps to Reproduce:
+
+1. disable AI by configuring `chat.disableAIFeatures`
+2. open quick open and type `?`
+
+=> 🐛 find `agent` showing up.
+",bug,0,https://github.com/microsoft/vscode/issues/286526
+Don't show initial hint when sendKeybindingsToShell setting is true,"Related to https://github.com/microsoft/vscode/issues/286065
+
+The chat and suggest keybindings won't work by design in this case.",bug,0,https://github.com/microsoft/vscode/issues/286517
+Revert pasting in the editor to the previous stable implementation,"While trying to create a fix for https://github.com/microsoft/vscode/issues/252371 , a different problem was introduced, of duplicating the paste -- https://github.com/microsoft/vscode/issues/284848. We therefore want to revert to what we had at the start of the iteration.",bug,0,https://github.com/microsoft/vscode/issues/286506
+Disabling AI does not apply without restart when Copilot installed,"Example in the editor:
+
+<img width=""339"" height=""58"" alt=""Image"" src=""https://github.com/user-attachments/assets/c32bae55-05ee-41e5-8de8-d08ab8f3ed6f"" />",bug,0,https://github.com/microsoft/vscode/issues/286498
+New task is created when one already exists from folder,"From: https://github.com/microsoft/vscode/issues/270296#issuecomment-3721129922 
+
+Apparently task is labeled differently when choosing by navigating to folder (such as npm and clicking that) vs. choosing it from recent task run.
+
+This is causing bug where new task is created wrongly, when it should just ask to terminate + re-run the same task. 
+
+/cc @TylerLeonhardt  @meganrogge ",bug,0,https://github.com/microsoft/vscode/issues/286465
+Review all safe to run npm commands,"`npm ci` should be safe for example, `npm i` not",feature-request,1,https://github.com/microsoft/vscode/issues/286463
+documentSelector `json` for LSP-Connection will spam `textDocument/didOpen|didClose` request for all `package.json`,"
+Type: <b>Bug</b>
+
+coming from: https://github.com/oxc-project/oxc/pull/17615#discussion_r2669778736
+Possible duplicate, but the server is just waiting for `textDocument/formatting`:  https://github.com/microsoft/vscode/issues/238935
+
+my extension want to use the following code:
+
+```ts
+// This list is not used as-is for implementation to determine whether formatting processing is possible.
+    const supportedExtensions = [
+      ""json""
+       // ... other extension
+    ];
+
+    const clientOptions: LanguageClientOptions = {
+      // Register the server for plain text documents
+      documentSelector: [
+        {
+          pattern: `**/*.{${supportedExtensions.join("","")}}`,
+          scheme: ""file"",
+        },
+      ],
+      ...
+  }
+```
+I tried with a new `documentSelector` on `clientOptions`. With `{language: ""json""}` too, same bug.
+
+When the server is started, VS Code will send, for every package.json in the project, a `textDocument/didOpen` and `textDocument/didClose` notification to the server. Even if you have only a TypeScript file open.
+With a big project, this can send over 100 requests to the server.
+Without `json`, the server is just waiting, after dynamic registrations, for the formatting request.
+
+Try it yourself with the oxc [git pull request](https://github.com/oxc-project/oxc/pull/17615) and these settings.
+
+
+```
+{
+  ""oxc.trace.server"": ""verbose"",
+  ""oxc.path.oxfmt"": ""apps/oxfmt/dist/cli.js"", // debug with local oxfmt build
+  ""oxc.fmt.configPath"": ""oxfmtrc.jsonc"",
+  ""editor.defaultFormatter"": ""oxc.oxc-vscode"",
+  ""editor.formatOnSave"": true
+}
+```
+
+You need to rebase, execute these commands and restart the editor after it:
+```
+cd editors/vscode
+pnpm install
+pnpm oxfmt:build:debug
+pnpm compile
+pnpm package
+pnpm install-extension
+```
+
+These are my export from the output channel:  [Oxc (Fmt).log](https://github.com/user-attachments/files/24479397/Oxc.Fmt.log), after some minutes these will happend again (without doing something): [Oxc (Fmt)2.log](https://github.com/user-attachments/files/24479448/Oxc.Fmt.2.log)
+
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+Remote OS version: Linux x64 6.6.87.2-microsoft-standard-WSL2
+
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|AMD Ryzen 9 7900X 12-Core Processor             (24 x 4700)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|undefined|
+|Memory (System)|31.10GB (5.32GB free)|
+|Process Argv|--folder-uri=vscode-remote://wsl+Ubuntu/home/sysix/dev/oxc --remote=wsl+Ubuntu --crash-reporter-id 2b3612a4-60c2-4760-b864-459fece876bf|
+|Screen Reader|no|
+|VM|0%|
+
+|Item|Value|
+|---|---|
+|Remote|WSL: Ubuntu|
+|OS|Linux x64 6.6.87.2-microsoft-standard-WSL2|
+|CPUs|AMD Ryzen 9 7900X 12-Core Processor (24 x 0)|
+|Memory (System)|15.17GB (8.94GB free)|
+|VM|0%|
+</details><details><summary>Extensions (39)</summary>
+
+Extension|Author (truncated)|Version
+---|---|---
+vscode-jetbrains-keybindings|isu|0.1.9
+remote-containers|ms-|0.434.0
+remote-wsl|ms-|0.104.3
+vscode-icons|vsc|12.15.0
+rust-bundle|1Yi|1.0.0
+vscode-intelephense-client|bme|1.16.3
+vscode-eslint|dba|3.0.20
+composer-php-vscode|DEV|1.64.18270
+intelli-php-vscode|DEV|0.12.17700
+phptools-vscode|DEV|1.64.18270
+profiler-php-vscode|DEV|1.64.18270
+docker|doc|0.18.0
+githistory|don|0.6.20
+EditorConfig|Edi|0.17.4
+prettier-vscode|esb|11.0.2
+dependi|fil|0.7.21
+copilot-chat|Git|0.35.3
+vscode-github-actions|git|0.29.1
+gti-vscode|Gra|0.6.1
+php-cs-fixer|jun|0.3.21
+git-graph|mhu|1.30.0
+vscode-containers|ms-|2.3.0
+vscode-docker|ms-|2.0.0
+extension-test-runner|ms-|0.0.14
+live-server|ms-|0.4.16
+vscode-just-syntax|nef|0.8.0
+indent-rainbow|ode|8.3.1
+oxc-vscode|oxc|1.38.0
+vscode-yaml|red|1.19.1
+rust-analyzer|rus|0.3.2743
+vscode-coverage-gutters|rya|2.14.0
+markdown-preview-enhanced|shd|0.8.20
+code-spell-checker|str|4.4.0
+even-better-toml|tam|0.21.2
+typos-vscode|tek|0.1.47
+vscode-lldb|vad|1.11.4
+volar|Vue|3.2.2
+gitblame|wad|11.2.0
+markdown-all-in-one|yzh|3.6.3
+
+
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+pythonvspyt551:31249599
+binariesv615:30325510
+nativeloc1:31344060
+dwcopilot:31170013
+dwoutputs:31242946
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythonrdcb7:31342333
+6518g693:31436602
+aj953862:31281341
+6abeh943:31336334
+cloudbuttont:31379625
+3efgi100_wstrepl:31403338
+use-responses-api:31390855
+ddidt:31399633
+6j29d282:31407606
+ec5jj548:31422691
+terminalsuggestenabled:31431119
+cmp-ext-treat:31426748
+cp_cls_c_966_ss:31442353
+c0683394:31419495
+478ah919:31426797
+ge8j1254_inline_auto_hint_haiku:31427726
+a5gib710:31434435
+38bie571_auto:31426784
+no_request_with_suggest:31435826
+rename_enabled:31436409
+7a04d226_do_not_restore_last_panel_session:31438103
+anthropic_thinking_t:31432745
+h0hdh950:31428394
+cp_cls_c_1081:31433293
+copilot-nes-oct-trt:31432596
+nes-slash-models-on:31441832
+nes-set-to-on:31441941
+a43f0575b:31442825
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/286455
+Allow users to request feature access from VS Code,"We are working to show disabled features in the UI but it would be nice to make this more actionable for the end user directly within VS Code. 
+
+GH already supports ""requests"" for other features and I was provided the following resources on how other teams integrated with this. 
+- https://github.com/github/github-ui/blob/main/packages/copilot-member-feature-requests/copilot-member-feature-requests.ts
+- documentation for the request framework in general https://github.com/github/meao/discussions/2150
+",feature-request,1,https://github.com/microsoft/vscode/issues/286454
+Agent: Special characters made file un-editable for Opus,"`CMS Hospital Compare – “Are ratings actually meaningful?”` has 3 characters that totally broke editing for Opus.
+
+<img width=""847"" height=""716"" alt=""Image"" src=""https://github.com/user-attachments/assets/376655fe-080f-47ef-8abd-b70bd9b4a460"" />",bug,0,https://github.com/microsoft/vscode/issues/286451
+Do not show selectionMode in terminal suggest toolbar when quick suggestions are disabled,"Idea from @Tyriar 
+
+This'll make things less confusing as now we select the suggest when explicitly invoked",feature-request,1,https://github.com/microsoft/vscode/issues/286440
+Settings editor does not show default values for object settings,"To see the setting value, I have to click `Add Item`
+
+Before click:
+
+<img width=""778"" height=""439"" alt=""Image"" src=""https://github.com/user-attachments/assets/83e93535-6424-4b02-9900-6edd482fae6b"" />
+
+After:
+
+<img width=""961"" height=""155"" alt=""Image"" src=""https://github.com/user-attachments/assets/e885540d-761a-4232-976d-fd2d35ba3fb5"" />",bug,0,https://github.com/microsoft/vscode/issues/286430
+SCM - hidden repositories are shown in the Changes view,"Steps to Reproduce:
+
+1. Set `scm.repositories.selectionMode` to `multiple`
+2. Open a workspace/folder that contains a git repository
+3. Create a background agent session using a worktree
+
+Expected: worktree should now be shown in the Changes view
+Actial: worktree is shown in the Changes view
+",bug,0,https://github.com/microsoft/vscode/issues/286429
+"When a backgrounded session is re-entered and the request is still running, there's no progress sound","> Works but if I switch back to the chat session then I never get sounds for it, not sure whether that's expected to work 
+
+ _Originally posted by @roblourens in [#281595](https://github.com/microsoft/vscode/issues/281595#issuecomment-3720410029)_",bug,0,https://github.com/microsoft/vscode/issues/286427
+Unable to toggle Show More button with Space or Enter keys,"In the chat agent sessions view, I focused the Show More button. I then tried using the Space and Enter keys to toggle the button, but nothing happened.
+I have screenreader mode off, but I do not think it needs to be on to support this feature.",bug,0,https://github.com/microsoft/vscode/issues/286420
+Claude Opus fails to parse schema definitions correctly,"
+Type: <b>Bug</b>
+
+I am sending along tools which use enums. These tools work with most models but are failing with Opus with this error:
+
+```
+Sorry, your request failed. Please try again.
+
+Copilot Request id: 2f827d43-1a2f-4cbb-89dc-250fb4c39b8f
+
+GH Request Id: 0716:8B97F:13EF945:167BC8F:695EA99F
+
+Reason: Request Failed: 400 {""error"":{""message"":""tools.0.custom.input_schema: Invalid $ref in schema: '#/$defs/Category' does not exist. Ensure all $ref targets are defined in the schema's definitions or $defs.. Learn more about tool use at https://docs.claude.com/en/docs/tool-use."",""code"":""invalid_request_body""}}
+```
+
+Here are the tools sent, from the Chat Debug view:
+
+```
+tools            : [
+    {
+        ""function"": {
+            ""name"": ""mcp_expenses-mcp-2_add_user_expense"",
+            ""description"": ""Add a new expense to Cosmos DB."",
+            ""parameters"": {
+                ""$defs"": {
+                    ""Category"": {
+                        ""enum"": [
+                            ""food"",
+                            ""transport"",
+                            ""entertainment"",
+                            ""shopping"",
+                            ""gadget"",
+                            ""other""
+                        ],
+                        ""type"": ""string""
+                    },
+                    ""PaymentMethod"": {
+                        ""enum"": [
+                            ""amex"",
+                            ""visa"",
+                            ""cash""
+                        ],
+                        ""type"": ""string""
+                    }
+                },
+                ""properties"": {
+                    ""date"": {
+                        ""description"": ""Date of the expense in YYYY-MM-DD format"",
+                        ""format"": ""date"",
+                        ""type"": ""string""
+                    },
+                    ""amount"": {
+                        ""description"": ""Positive numeric amount of the expense"",
+                        ""type"": ""number""
+                    },
+                    ""category"": {
+                        ""$ref"": ""#/$defs/Category"",
+                        ""description"": ""Category label""
+                    },
+                    ""description"": {
+                        ""description"": ""Human-readable description of the expense"",
+                        ""type"": ""string""
+                    },
+                    ""payment_method"": {
+                        ""$ref"": ""#/$defs/PaymentMethod"",
+                        ""description"": ""Payment method used""
+                    }
+                },
+                ""required"": [
+                    ""date"",
+                    ""amount"",
+                    ""category"",
+                    ""description"",
+                    ""payment_method""
+                ],
+                ""type"": ""object""
+            }
+        },
+        ""type"": ""function""
+    },
+    {
+        ""function"": {
+            ""name"": ""mcp_expenses-mcp-2_get_expense_stats"",
+            ""description"": ""Get a statistical summary of expenses (count per category) for all users.\nOnly accessible to users in the authorized admin group."",
+            ""parameters"": {
+                ""properties"": {},
+                ""type"": ""object""
+            }
+        },
+        ""type"": ""function""
+    },
+    {
+        ""function"": {
+            ""name"": ""mcp_expenses-mcp-2_get_user_expenses"",
+            ""description"": ""Get the authenticated user's expense data from Cosmos DB."",
+            ""parameters"": {
+                ""properties"": {},
+                ""type"": ""object""
+            }
+        },
+        ""type"": ""function""
+    }
+]
+```
+
+Extension version: 0.36.2026010701
+VS Code version: Code - Insiders 1.108.0-insider (Universal) (cff2c318f87b2ff763290e4d5020c250f78d61f8, 2025-12-17T14:28:55.820Z)
+OS version: Darwin arm64 23.6.0
+Modes:
+
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|Apple M1 Pro (10 x 2400)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: enabled_on<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|5, 5, 5|
+|Memory (System)|16.00GB (0.06GB free)|
+|Process Argv|--log trace --crash-reporter-id 29b0fda8-7569-499a-9770-cfbb5ac8c0cf|
+|Screen Reader|no|
+|VM|0%|
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+pythonvspyt551cf:31249598
+nativeloc1:31118317
+dwcopilot:31158714
+dwoutputs:31242946
+copilot_t_ci:31333650
+g012b348:31231168
+pythonrdcb7:31268811
+pythonpcpt1cf:31399617
+6518g693:31302842
+6abeh943:31336334
+envsactivate1:31349248
+editstats-enabled:31346256
+cloudbuttont:31366566
+aihoversummaries_t:31413033
+todos-1:31405333
+3efgi100_wstrepl:31403338
+use-responses-api:31390341
+je187915:31401257
+3i15c187:31419923
+metis_rerank_treatment1:31411021
+terminalsuggestenabled:31421703
+none:31438490
+cp_cls_c_966_ss:31435507
+chatvisible:31417128
+a9239246:31426643
+4je02754:31426859
+find_all_ref_in_bg_t:31420845
+478ah919:31426749
+ge8j1254_inline_auto_hint_haiku:31426887
+a5gib710:31434435
+5j92g670_sonnet:31434465
+7a04d226_do_not_restore_last_panel_session:31429685
+anthropic_thinking_t:31427198
+406hc587_ask_agent:31428392
+cp_cls_c_1081:31433293
+copilot-nes-oct-trt:31432609
+ia-no-proxy-models-svc:31436618
+nes-slash-models-off:31440959
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/286415
+Chat panel cuts off content at bottom,"1. delegate something to a background agent with the cli (seems to be specific to background)
+2. go to chat sessions and click that session once it is finished
+
+:bug: the content is scrolled out of view
+
+https://github.com/user-attachments/assets/1c10c52c-6979-43c0-95f2-57efba3276d3",bug,0,https://github.com/microsoft/vscode/issues/286408
+Add descriptions to model picker,"We support many models, which is awesome. 
+
+However, it's overwhelming for the user to choose between them.
+
+For beginners and pros alike, we should provide descriptions for the models so users understand the use cases and thus have the best experience.
+
+I raised this Oct 9 2024, here was the feedback:
+
+<img width=""1500"" height=""434"" alt=""Image"" src=""https://github.com/user-attachments/assets/a8650bad-ffb7-4f76-8b6c-83e2b9b77b87"" />
+",feature-request,1,https://github.com/microsoft/vscode/issues/286401
+No stop button available while terminal runs,"You can tell the agent is still working by the spinner on Terminal tool, but the input box shifted to a send button. Does this mean it's no longer working and the spinner on tool is incorrect? These view states seem inconsistent.
+
+<img width=""493"" height=""686"" alt=""Image"" src=""https://github.com/user-attachments/assets/918cf730-1858-41f3-81c0-b67473e84156"" />",bug,0,https://github.com/microsoft/vscode/issues/286390
+Opening recent folder via SSH fails without arcane magic,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes/No
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version: 1.107.1
+- OS Version: 25H2 client; 24H2 server
+
+Setup: remote machine is running Windows 11 24H2 with OpenSSH server and has pwsh set as the SSH default shell (e.g. when I SSH into the machine, I get an instance of pwsh).
+
+Not sure if that plays a role, but my client machine does not have native IPv6 connectivity, and I am using Yggdrasil to connect to the server by its AAAA host record with Yggdrasil address. I noticed that some programs randomly fail to resolve IPv6 address in question presumably due to machine having no regular access to IPv6. But that issue goes away by retrying whereas the one below reproduces 100% of time.
+
+Steps to Reproduce:
+
+1. On the client: select any recent folder you've opened via SSH either via VS Code task list in the Taskbar or in a new local (not connected via SSH) VS Code window recent folders list.
+2. At this point VS Code presents me with ""Do you trust the authors of the files in this folder?"" dialog even though I've used this folder and answered ""Trust Folder & Continue"" before (see further). If I press ""Trust Folder & Continue"" now, it fails to connect: 'Could not establish connection to ""xxx"": Connecting with SSH timed out.' If instead I press ""Cancel"", VS Code connects to the remote, opens folder, then presents the ""Do you trust the authors of the files in this folder?"" AGAIN. Now if I press ""Trust Folder & Continue"", I can proceed to editing normally (in trusted mode), ""Cancel"" also works in untrusted mode.",bug,0,https://github.com/microsoft/vscode/issues/286384
+Error: AbstractContextKeyService has been disposed,"1. `scripts/code-cli.sh --transient`
+2. open a folder with 2 files or more
+3. from the explorer select 2 and compare with each other to open a diff editor
+4. split the editor so that you see 2 diff editors side by side
+5. close the second diff editor
+
+```
+contextMatchesRules (contextKeyService.ts:322)
+createActionGroups (menuService.ts:285)
+getActions (menuService.ts:453)
+updateToolbar (toolbar.ts:368)
+(anonymous) (toolbar.ts:378)
+_deliver (event.ts:1212)
+fire (event.ts:1243)
+resume (event.ts:1392)
+(anonymous) (event.ts:1431)
+setTimeout
+targetWindow.setTimeout (window.ts:124)
+fire (event.ts:1429)
+(anonymous) (menuService.ts:434)
+_deliver (event.ts:1212)
+_deliverQueue (event.ts:1223)
+fire (event.ts:1247)
+fire (event.ts:1410)
+setContext (contextKeyService.ts:348)
+set (contextKeyService.ts:210)
+(anonymous) (platformObservableUtils.ts:40)
+_recompute (derivedImpl.ts:201)
+get (derivedImpl.ts:159)
+reportChanges (baseObservable.ts:45)
+endUpdate (utils.ts:191)
+endUpdate (derivedImpl.ts:281)
+endUpdate (derivedImpl.ts:281)
+finish (transaction.ts:102)
+transaction (transaction.ts:21)
+subtransaction (transaction.ts:58)
+setDiffModel (diffEditorWidget.ts:513)
+setModel (diffEditorWidget.ts:501)
+clearInput (textDiffEditor.ts:331)
+(anonymous) (editorPanes.ts:498)
+safeRun (editorPanes.ts:545)
+doHideActiveEditorPane (editorPanes.ts:498)
+closeEditor (editorPanes.ts:517)
+doCloseActiveEditor (editorGroupView.ts:1635)
+doCloseEditor (editorGroupView.ts:1554)
+doCloseEditorWithConfirmationHandling (editorGroupView.ts:1540)
+await in doCloseEditorWithConfirmationHandling
+closeEditor (editorGroupView.ts:1525)
+run (editorActions.ts:481)
+runAction (actions.ts:199)
+run (actions.ts:190)
+run (editorTabsControl.ts:73)
+onClick (actionViewItems.ts:177)
+(anonymous) (actionViewItems.ts:157)
+```
+
+https://github.com/user-attachments/assets/c1ac98f8-b404-4b2e-b2e8-a73ad5779dc6",bug,0,https://github.com/microsoft/vscode/issues/286361
+Background agent action is not working for new users,"Steps to Reproduce:
+
+1. fresh setup: `code-insiders --transient`
+2. click on the ""New Background Agent"" action in the plus dropdown
+3. 🐛 notice an error: ""No default agent registered""
+
+<img width=""1312"" height=""912"" alt=""Image"" src=""https://github.com/user-attachments/assets/9680b5a5-004d-40ab-b8e2-3150de7a8ea4"" />
+
+4. sign in
+5. click on ""New Background Agent""
+6. 🐛 notice how there is a ""Open Picker"" action that does nothing
+
+<img width=""449"" height=""217"" alt=""Image"" src=""https://github.com/user-attachments/assets/0802cb92-e2bb-40d1-9071-b3aae73f4ec8"" />
+
+//cc @bamurtaugh ",bug,0,https://github.com/microsoft/vscode/issues/286360
+Memory leak related to diff editor,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version: 1.108.0
+- OS Version: Ubuntu 25.04
+
+
+When opening two diff editors, then closing all editors, the number of various functions seems to grow each time.
+
+
+
+This is the full test result data of the diff-editor-open-side-by-side test, showing which functions grow between the start and end of the test:
+![diff-editor-side-by-side](https://github.com/user-attachments/assets/c9e5ce92-63c8-4a9b-80a7-eb899cdc70c8)
+
+
+The full test result data as json:
+[folder.zip](https://github.com/user-attachments/files/24467871/folder.zip)
+
+
+
+And the video of the test case:
+
+[video.webm](https://github.com/user-attachments/assets/03ada0a4-f5b1-4588-b13c-d2f5aea2f2c9)
+
+And the script to run it (ensure using node 24 or newer)
+
+Measuring named function count:
+
+```sh
+git clone git@github.com:SimonSiefke/vscode-memory-leak-finder.git &&
+cd vscode-memory-leak-finder &&
+npm ci &&
+node packages/cli/bin/test.js  --run-skipped-tests-anyway --check-leaks --measure named-function-count3 --measure-after --runs 37   --only diff-editor-side-by-side 
+```
+
+
+Measuring promises with stacktrace
+
+```sh
+node packages/cli/bin/test.js  --run-skipped-tests-anyway --check-leaks --measure promises-with-stack-trace --measure-after --runs 37   --only diff-editor-side-by-side 
+```
+
+
+",bug,0,https://github.com/microsoft/vscode/issues/286336
+Background sessions from other workspaces appear,"Steps to Reproduce:
+
+1. `code-insiders --transient`
+2. setup Copilot
+3. open a folder
+4. open sessions view side by side
+
+=> notice how background sessions are visible that do not belong there. They are all relatively new.
+
+<img width=""1312"" height=""912"" alt=""Image"" src=""https://github.com/user-attachments/assets/5668fef4-390d-4483-a6ce-030f509921a7"" />
+",bug,0,https://github.com/microsoft/vscode/issues/286335
+VS Code Feature Request: Extension API: Control Tree Item Expansion During Drag Operations,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+
+# VS Code Feature Request: Control Tree Item Expansion During Drag Operations
+
+## Problem
+
+When implementing drag-and-drop in `TreeViews` with hierarchical structures (folders + leaf items), VS Code automatically expands any collapsible tree item when hovering over it during a drag operation. This behavior is hardcoded and cannot be controlled by extensions.
+
+**Real-world scenario**: We're building a connection management tree with folders and connection items. Connections are expandable (they contain databases), but resolving the children requires establishing a real network connection.
+
+During drag-and-drop operations, when a user moves the mouse pointer *over* a connection item to reach a target folder, VS Code forcibly expands the item. **This automatically triggers an unwanted connection attempt**, blocking the UI or causing side effects, even though the user simply wanted to pass over the item.
+
+This behavior makes drag-and-drop functionality essentially unusable for our scenario, as we cannot allow accidental connections during simple UI interactions. It strictly limits the extensibility of `TreeView` for any extension that uses ""virtual nodes"" -- items that are expandable but aren't simple folders, or require expensive operations to resolve children.
+
+The current behavior assumes that expandable items are **always** valid drop containers, but this isn't true for many hierarchical models where:
+- Leaf items can have children for viewing purposes but shouldn't accept drops
+- The distinction between ""drop onto parent folder"" vs ""drop into subfolder"" matters
+- Visual feedback and user intent need to be distinguished
+
+## Impact
+
+This limitation forces us to **disable drag-and-drop entirely** in our scenario to prevent poor user experience and accidental operations.
+
+## Proposed Solution
+
+We need a way to control the hover-expansion behavior programmatically. This could be achieved by:
+
+1.  **A property on `TreeItem`** (e.g., `expandOnDragOver: boolean`) to explicitly opt-out of auto-expansion for specific items.
+2.  **A callback in `TreeDragAndDropController`** (e.g., `handleDragOver`) that allows the extension to determine if expansion is allowed for a given target.
+
+Either approach would solve the issue by giving extensions control over when an item should be expanded during user interaction.
+
+---
+
+## Keywords
+
+`TreeView` `TreeDragAndDropController` `drag-and-drop` `dnd` `expansion` `auto-expand` `hover` `handleDrop` `TreeItem` `collapsibleState` `folder` `hierarchy` `drop-target` `extension-api`
+",feature-request,1,https://github.com/microsoft/vscode/issues/286332
+Background session - local background session stats not computed,"Steps to Reproduce:
+
+1. Ensure that `github.copilot.chat.cli.autoCommit.enabled` is set to `false`
+2. Create a local backtround session and make some changes with it
+3. When the session is completed, hit the ""Back"" button to go back to the session list
+    * Confirm that the newly created sessions statistics (files, additions, deletions) as correct
+",bug,0,https://github.com/microsoft/vscode/issues/286326
+Chat input shadows are confusing,"I can see two issues when the chat input content overflows its container:
+
+1. The top shadow should stretch horizontally to fill the entire width of the chat input.
+2. The bottom shadow is just plain wrong. It's telling me that the Agent, Model controls container can scroll up 😕. If there's a bottom shadow it should be facing upwards and appear only when the chat input contents can be further scrolled down.
+
+<img width=""582"" height=""329"" alt=""Image"" src=""https://github.com/user-attachments/assets/1a6804c1-7bd1-4d30-b47a-7f6aa61e6e7b"" />",bug,0,https://github.com/microsoft/vscode/issues/286323
+Disassembly view doesn’t show symbol labels even though debugger returns them,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: No
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version: 1.107.1
+- OS Version: Windows_NT x64 10.0.22631
+
+VS Code’s Disassembly View fails to display function symbols inline even though the debugger backend provides them.
+
+Example snippet from the debug adapter’s disassembly response:
+
+`{
+  ""address"": ""0x000001e6"",
+  ""instructionBytes"": ""02 00 fa"",
+  ""instruction"": ""lnk       #0x2"",
+  ""symbol"": ""_main"",
+  ""location"": {
+    ""path"": ""D:/developers/PIC16_devices/dsPIC30F1010/main.c""
+  }
+}`
+
+
+The ""symbol"": ""_main"" field is present, but VS Code shows only raw instructions — no symbol label above the address.
+
+<img width=""1283"" height=""101"" alt=""Image"" src=""https://github.com/user-attachments/assets/04c5c553-ca41-4185-93fd-5cdeb232f319"" />",bug,0,https://github.com/microsoft/vscode/issues/286322
+"Search: cannot dismiss ""Other files""","https://github.com/user-attachments/assets/6fcbd8fe-2004-4858-bfcd-87ade8b1e6c6
+
+In this case I had a diff opened from a Copilot PR so I think that made the ""Other files"" bucket appear. Clicking the X does nothing.
+
+cc @dmitrivMS who maybe is willing to help",bug,0,https://github.com/microsoft/vscode/issues/286318
+Chat input - accepting changes shifts the input,"* Set `github.copilot.chat.cli.autoCommit.enabled` 
+* Create a local background session, Apply the change
+* When changes are applied, the working tree is clealed and chat input is shifted. Looks like there is a missing layout call.
+
+https://github.com/user-attachments/assets/18627c14-4f1e-4bf4-99d1-68064331aea5",bug,0,https://github.com/microsoft/vscode/issues/286316
+Action widget shows labels cropped,"Steps to Reproduce:
+
+1. create a new background agent
+2. open the dropdown to select workspace or work tree
+3. notice how the labels are cropped:
+
+<img width=""188"" height=""143"" alt=""Image"" src=""https://github.com/user-attachments/assets/347945e9-d4fa-4626-975b-7a78ad200f8d"" />
+
+Caused by: https://github.com/microsoft/vscode/compare/9ba40f8204f1b4cb092f9585b19ab3f26d0a588c...950ca05d5c9fe4a7cc356b7cb02dc08d895d8b02
+
+cc @ulugbekna who reported this already in Slack",bug,0,https://github.com/microsoft/vscode/issues/286304
+Support for right-click drag to move or copy selected text (like Microsoft Word),"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+
+# Feature Request
+I would like Visual Studio Code to support **right-click drag-and-drop** for moving or copying selected text, similar to how Microsoft Word and Windows Explorer behave.
+
+![Image](https://github.com/user-attachments/assets/1f55055c-8bdd-4578-a263-a78ef6e1ae5a)
+
+# Expected Behavior
+- Dragging with the right mouse button opens a small context menu on drop:
+  - Move here
+  - Copy here
+  - Cancel",feature-request,1,https://github.com/microsoft/vscode/issues/286293
+"""Forward a Port"" button inconsistent alignment","
+Type: <b>Bug</b>
+
+1. Open ""Ports"" on bottom panel.
+2. Click ""Forward a Port"".
+3. Press Esc.
+4. The button is now center-aligned until you navigate away and back to the Ports panel.
+
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/286280
+Deleting a worktree in the active worktree window causes error,"Testing #285964
+
+- Created worktree and opened in new window
+- Deleted worktree in the new window
+- 🐛 Git error
+
+Would have expected that the window gracefully closes or offers to open main again.
+
+<img width=""720"" height=""429"" alt=""Image"" src=""https://github.com/user-attachments/assets/8325bc47-9666-44d6-9a0c-6ae6da302164"" />",bug,0,https://github.com/microsoft/vscode/issues/286275
+Offer to open worktree,"Testing #285964
+
+Creating a new worktree feels disconnected.
+
+- Create a new worktree
+- 🐛 New branch appears while Worktrees section remains closed. I need to right-click the worktree to open it.
+
+I'd expect an end to end flow that lets me checkout or open the worktree in new window.",bug,0,https://github.com/microsoft/vscode/issues/286273
+"Deleted branch is still listed in repositories, breaking actions","Testing #285964
+
+- Created new worktree with new `ai-editor` branch, opened in new window
+- Deleted the worktree in the new window
+- 🐛 Old window still shows branch
+- 🐛 New worktree flow still shows `ai-editor` branch
+- 🐛 Picking the old branch name is a no-op, git error in output
+
+```
+2026-01-06 18:10:38.308 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-01-06 18:10:38.308 [trace] [Model][openRepository] Opening repository for path='/Users/digitarald/Developer/q_master.worktrees/ai-editor' failed. Error:Failed to execute git {
+  ""exitCode"": 128,
+  ""gitErrorCode"": ""NotAGitRepository"",
+  ""gitCommand"": ""rev-parse"",
+  ""stdout"": """",
+  ""stderr"": ""fatal: not a git repository (or any of the parent directories): .git\n""
+}
+```",bug,0,https://github.com/microsoft/vscode/issues/286272
+Allow creating Worktrees from branch context menu,"Testing #285964
+
+`ai-editor` was created while creating a new worktree. But I can't create a worktree from the branch menu:
+
+<img width=""329"" height=""266"" alt=""Image"" src=""https://github.com/user-attachments/assets/ac83f44c-62c5-49b9-aef1-272fbfb1fdc2"" />",feature-request,1,https://github.com/microsoft/vscode/issues/286271
+background agent 'illegal argument' when a notebook is open,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes/No
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version: 
+- OS Version: 
+
+Steps to Reproduce:
+
+1. Open a notebook in the editor (I have the my-endgame notebook open from VS Code)
+2. New Background Agent in sidebar
+3. send any message
+4. 🐛 `Illegal argument`
+
+https://github.com/user-attachments/assets/0bc336c1-b8c7-420f-b7bd-e786a5fb77e6
+",bug,0,https://github.com/microsoft/vscode/issues/286255
+"Background terminal tool failed when ""Evaluate this terminal output to determine if there were errors"" request failed","Hit a confusing set of issues
+
+- The agent ran 'npm start' as a bg command
+- The app failed to launch and the command terminated
+- But I was stuck looking at a spinner on `npm start` for almost a full minute because the 4o-mini request to check the output was stuck and eventually returned a 502
+- There's nothing you can do about that, there is sometimes flakiness in requests to CAPI and we know this, but the tool result then just contained this message
+
+```
+Note: The tool simplified the command to ` npm start`, and that command is now running in terminal with ID=38d97634-aa73-496d-b4e1-776e714be3e1
+ The command became idle with output:
+Error occurred Error: Server error: 502
+```
+
+<img width=""614"" height=""424"" alt=""Image"" src=""https://github.com/user-attachments/assets/9c34dc3e-eace-4a51-a4da-3af8c965d11c"" />
+
+Which is wrong for two reasons, because the command had terminated, and it should not report an http error from an internal request. It could have still reported the output of the terminal command.
+
+Then, unrelated and maybe known issues, it did a `get_terminal_output` correctly and got the output, but then misunderstood it (?) and did this
+
+```
+The app is running. Let me check for any issues by looking at the console output: 
+🛠️ run_in_terminal (toolu_vrtx_0154ekL4gWFHH5KfSUah9ScJ) {
+  ""command"": ""cd /Users/roblou/code/notes-app && npm start 2>&1"",
+  ""explanation"": ""Restart the app and capture any error output"",
+  ""isBackground"": true
+}
+```
+
+which started the app a second time. I don't know why it thought it had to do that.
+
+Full log
+[5beacd7f.copilotmd](https://github.com/user-attachments/files/24461115/5beacd7f.copilotmd)
+
+The first terminal tool call
+[toolu_vrtx_01PvXMc8es4fjawNydarzc25__vscode-1767739270603.copilotmd](https://github.com/user-attachments/files/24461110/toolu_vrtx_01PvXMc8es4fjawNydarzc25__vscode-1767739270603.copilotmd)
+
+The failed 4o-mini request
+[3a8f559c.copilotmd](https://github.com/user-attachments/files/24461111/3a8f559c.copilotmd)",bug,0,https://github.com/microsoft/vscode/issues/286241
+`Copy Breadcrumb Path` doesn't do anything when you're not focused on a symbol,"While testing https://github.com/microsoft/vscode/issues/285956, I noticed that if I open a file from the explorer, right-click the tab, and then select `Copy Breadcrumbs Path`, it will simply no-op. Or if I open a file that doesn't support symbol breadcrumbs (e.g. GitHub Action workflows, without the proper extensions installed?), then regardless where I put my cursor, the `Copy Breadcrumbs Path` doesn't do anything.
+
+This behavior kind of makes sense, but since the command name doesn't mention it's specific to symbols, and the breadcrumb can display a nested folder/file structure, I could imagine it being slightly confusing to some users when/why this actually works. But in practice, maybe no one would ever notice?
+
+That said, I just raise it for conversation, since I don't feel strongly about the issue being a priority. But maybe we could discuss disabling it when there's no symbol selection?",bug,0,https://github.com/microsoft/vscode/issues/286240
+`Failed to execute git` after background agent interactions,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes/No
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version: 
+
+```
+Version: 1.108.0-insider (user setup)
+Commit: 31de8ea351f73eb2071e36e415ae1970749f91fd
+Date: 2026-01-06T18:03:52.352Z
+Electron: 39.2.7
+ElectronBuildId: 12953945
+Chromium: 142.0.7444.235
+Node.js: 22.21.1
+V8: 14.2.231.21-electron.0
+OS: Windows_NT arm64 10.0.26200
+```
+
+- OS Version: Windows 11
+
+Steps to Reproduce:
+
+Ref https://github.com/microsoft/vscode-internalbacklog/issues/6527
+
+Found while verifying https://github.com/microsoft/vscode/issues/280188
+
+1. Ask the background agent anything. I have the vscode-docs repo open
+2. The background agent works on my task
+3. ❓ I get `Failed to execute git` at the end of every background agent output
+
+<img width=""2479"" height=""1580"" alt=""Image"" src=""https://github.com/user-attachments/assets/1d10a5cd-84fe-476d-a228-ba59a6c87508"" />
+",bug,0,https://github.com/microsoft/vscode/issues/286232
+Attach sku to telemetry event when quota is exceeded,"We send the github.copilot-chat/panel.request event when a user sends a chat request with attached sku information but it seems when a user exceeds their quota sku is returned as `undefined` 
+
+Let's make sure sku get attached properly in this scenario. ",bug,0,https://github.com/microsoft/vscode/issues/286214
+Support user feedback/note input during chat session export,"On export of chat session, user can comment what the agent did well or poorly. Can then be used to help generate the actual test case and eval logic.",feature-request,1,https://github.com/microsoft/vscode/issues/286209
+Agent sessions: Clear “Undo Archive” Action,"
+Type: <b>Feature Request</b>
+
+Description
+After archiving an item, it’s not obvious that the action can be undone. While it is possible to restore archived items by filtering to show archived content, this workflow is not clear or discoverable for many users.
+
+Suggestion
+Add a clear “Undo Archive” button or inline action immediately after an item is archived, so users can easily reverse the action without needing to change filters.
+
+Benefit
+Improves discoverability, reduces confusion, and makes archiving feel safer and more user-friendly.
+
+
+VS Code version: Code - Insiders 1.108.0-insider (1cd32455f84020ce777b4b7d95df0a4b47b07015, 2026-01-05T05:03:42.416Z)
+OS version: Darwin arm64 24.6.0
+Modes:
+
+
+<!-- generated by issue reporter -->",feature-request,1,https://github.com/microsoft/vscode/issues/286204
+Support decimal/floating-point values for terminal.integrated.fontSize,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+
+The `editor.fontSize` setting supports decimal values (e.g., `11.25`, `13.5`), but `terminal.integrated.fontSize` only accepts whole numbers. Setting a decimal value like `11.25` gets truncated to `11`.
+
+**Current Behavior**
+
+```json
+{
+  ""editor.fontSize"": 11.25,
+  ""terminal.integrated.fontSize"": 11.25
+}
+```
+The editor renders at 11.25px, but the terminal gets truncated to 11px.
+
+**Expected Behavior**
+
+`terminal.integrated.fontSize` should support decimal values just like `editor.fontSize`.
+
+**Use Case**
+
+Sometimes the difference between `11` and `12` is too significant. A value like `11.5` would provide better fine-tuning for readability, especially on high-DPI displays.
+
+**Notes**
+- The setting schema already defines `type: 'number'` (not `'integer'`)
+- xterm.js (the terminal renderer) already supports floating-point font sizes
+- This was added for `editor.fontSize` in #10301 (August 2016)
+
+I'd like to work on this. Is this something you'd accept a PR for?",feature-request,1,https://github.com/microsoft/vscode/issues/286194
+Copilot instructions and agents.md files should not auto-load linked markdown files,"When using copilot-instructions.md or AGENTS.md files in a workspace, markdown files that are linked within these instruction files are automatically being loaded and included as context. This behavior was meant for pre-agentic flows, and now can lead to unintended context bloat and unexpected behavior when these files simply reference other documentation without intending to include them as active context.
+
+I suggest to disable it completely and leave extra file reads to the agent.",feature-request,1,https://github.com/microsoft/vscode/issues/286192
+Bad settings search results,"Testing #286001
+
+Wanted to configure the auto approvals and it's not showing at the top, but should be
+
+<img width=""874"" height=""701"" alt=""Image"" src=""https://github.com/user-attachments/assets/2f087fbd-cffe-4977-9bb9-219afb66c6b5"" />
+",bug,0,https://github.com/microsoft/vscode/issues/286191
+Fish run recent command messed up when commands ran with Copilot,"Testing #286022
+
+This one is interesting
+
+Set `  ""chat.tools.terminal.preventShellHistory"": false` then use fish shell.
+
+How to repro (see the video too):
+1. Run some command to run in terminal via copilot
+2. Look at run recent command. It is fine
+3. Run second command to run in terminal via copilot
+4. 🐛 Run recent command polluted with `welcome to fish...etc`
+
+https://github.com/user-attachments/assets/fe99a934-0a29-45a4-98ab-28f0fd96986b
+
+The interesting thing is that when commands are ran manually run recent command is NOT polluted:
+
+https://github.com/user-attachments/assets/70508c59-c266-4cac-bfff-24608599e687
+
+Im not sure what the difference is between running command manually vs. via copilot, but surprised run recent command behaves differently.
+
+
+
+Another interesting find:
+Without starship run recent command are not polluted even when commands are ran via copilot:
+
+https://github.com/user-attachments/assets/979a8c27-e2a2-4e6c-a90c-34c56c20e16f
+
+
+Maybe this is my issue🧐 starship somehow messing up? I noticed A and D are little off-position:
+
+<img width=""833"" height=""267"" alt=""Image"" src=""https://github.com/user-attachments/assets/9bad2381-5543-4bc3-9998-98b843e7b248"" />
+
+<img width=""911"" height=""296"" alt=""Image"" src=""https://github.com/user-attachments/assets/4eced011-d533-4cb4-8ae4-c61d5379bc41"" />",bug,0,https://github.com/microsoft/vscode/issues/286188
+Add all the GHPR cloud agent session actions as dummy actions into Copilot Chat,These dummy actions will prompt the user to install GHPR then perform the intended action (if possible). ,feature-request,1,https://github.com/microsoft/vscode/issues/286168
+Strange UI behaviour when Show Agent Session sidebar,"See screen cast
+
+https://github.com/user-attachments/assets/db3594f3-0dc0-41e8-ab98-1dd6de4d327d
+
+I would have expected that when I hide the session side bar again the chat viewlet returns to its initial size.
+",bug,0,https://github.com/microsoft/vscode/issues/286166
+Casing transforms in snippets only support Latin characters,"Testing #233798
+
+Use the following snippet:
+```
+""testSnippet"": {
+  ""scope"": ""javascript,typescript"",
+  ""prefix"": ""testSnippet"",
+  ""body"": ""${1} -> ${1/(.*)/${1:/upcase} ${1:/downcase} ${1:/camelcase} ${1:/pascalcase} ${1:/kebabcase} ${1:/snakecase}/}""
+}
+```
+
+Give it input `oneTwo` you will get ```oneTwo -> ONETWO onetwo oneTwo OneTwo one-two one_two``` which is correct.
+Give it input `одинДва` you will get ```одинДва -> ОДИНДВА одиндва одинДва одинДва одинДва одиндва``` which is incorrect as non-Latin letters are not handled correctly (in this case Russian alphabet, but code only cares about a-z).
+
+We should probably use Unicode definition of words if possible to perform the case transforms.
+",bug,0,https://github.com/microsoft/vscode/issues/286165
+Support runtime feature experimentation,"Hook into our experimentation service to validate features available from the runtime, ex: https://github.com/microsoft/vscode/issues/268800",feature-request,1,https://github.com/microsoft/vscode/issues/286162
+File completions aren't working for WSL,"Forking from https://github.com/microsoft/vscode/issues/285577#issuecomment-3713735898
+
+<img width=""1197"" height=""287"" alt=""Image"" src=""https://github.com/user-attachments/assets/4e69ea40-fab2-4e12-9764-3c3c223660e0"" />
+
+<img width=""969"" height=""789"" alt=""Image"" src=""https://github.com/user-attachments/assets/418de7a2-6f5d-445b-956f-715d260f3747"" />
+
+I'm also seeing this on 1.106 so it's separate to the https://github.com/microsoft/vscode/issues/285577 work
+
+<img width=""1126"" height=""159"" alt=""Image"" src=""https://github.com/user-attachments/assets/25fb5c52-e7de-4bbb-a345-0a7bdcd9d8ad"" />
+
+Version: 1.106.3 (user setup)
+Commit: bf9252a2fb45be6893dd8870c0bf37e2e1766d61
+Date: 2025-11-25T22:28:18.024Z
+Electron: 37.7.0
+ElectronBuildId: 12781156
+Chromium: 138.0.7204.251
+Node.js: 22.20.0
+V8: 13.8.258.32-electron.0
+OS: Windows_NT x64 10.0.26200",bug,0,https://github.com/microsoft/vscode/issues/286155
+Support increase/decrease view size/width commands in floating windows,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+Support for the following actions in floating windows:
+1. `workbench.action.decreaseViewSize`
+2. `workbench.action.increaseViewSize`
+3. `workbench.action.decreaseViewWidth`
+4. `workbench.action.increaseViewWidth`
+
+This would be helpful for keyboard-driven navigation when working with multiple editors across multiple windows, removing a reason to reach for the mouse when the selected editor can always be resized by keyboard shortcut, regardless of whether it's in the main window
+
+Related: #284290 ",feature-request,1,https://github.com/microsoft/vscode/issues/286152
+Terminal suggest should be selected when triggered explicitly via keybinding,"Forking from https://github.com/microsoft/vscode/issues/286077
+
+Repro:
+
+1. Open terminal
+2. Press ctrl+space, 🐛 the top item should have selected background color and enter should accept it",bug,0,https://github.com/microsoft/vscode/issues/286148
+Align jsdoc for `QuickPickItem#resourceUri` and `TreeItem#resourceUri`,"Testing #274948
+
+The tree item and quick pick item both have the resources uri property and afaik their behaviour is the same. It's nit it would be nice to have the same/aligned jsdoc comment for them",bug,0,https://github.com/microsoft/vscode/issues/286145
+Implement Flatpak portals and an official Flatpak on Flathub,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+Right now code is on the top 25 flathub apps. its been like that for years. I use that app and I cant get the terminal to work without launching it with special args. Please implement an official flatpak and publish it to flathub so more people can use your app with the flatpak packaging system. It would help both you and the linux community.
+
+Thanks",feature-request,1,https://github.com/microsoft/vscode/issues/286143
+Terminal: Implement Kitty graphics protocol support,"https://sw.kovidgoyal.net/kitty/graphics-protocol/
+
+Upstream: https://github.com/xtermjs/xterm.js/issues/5592",feature-request,1,https://github.com/microsoft/vscode/issues/286141
+Improve the hover on approved rules,"Testing #286024
+
+<img width=""439"" height=""234"" alt=""Image"" src=""https://github.com/user-attachments/assets/6829a114-a15d-4855-90a6-8c469a916421"" />
+
+The hover is not clear to me. 
+Maybe say something like: `Auto approve rule added to the current session.`
+or when already approved:
+'Auto approved by rule in the current session.`'",bug,0,https://github.com/microsoft/vscode/issues/286139
+SCM - hidden repositories appear in the Repositories menu,"1. Open a workspace with multiple repositories
+2. Create a new background agent session that uses a worktree
+3. Git worktree will appear in the Repositories menu in the SCM Changes view
+
+<img width=""507"" height=""237"" alt=""Image"" src=""https://github.com/user-attachments/assets/cbd3571a-0ef5-4659-8021-d9ab0b12a7c0"" />",bug,0,https://github.com/microsoft/vscode/issues/286127
+Terminal & Windows: Git Bash shows infinite loading when clicking “Show Suggestions”,"Testing [286005 ](https://github.com/microsoft/vscode/issues/286005)
+
+https://github.com/user-attachments/assets/bde96a59-7a55-4728-9ffb-84e3fa8ec46d
+
+* open terminal on windows machine
+* open git bash in terminal
+* clicking 'show suggestions' -> I am only able to see a loading view
+_Note: I tested with my mac book and bash works there correctly_
+",bug,0,https://github.com/microsoft/vscode/issues/286124
+Settings panel has overlapping settings,"At the top of the settings panel the first 5 or so settings are being overlapped by other settings.
+
+Screenshot:
+
+<img width=""979"" height=""745"" alt=""Image"" src=""https://github.com/user-attachments/assets/23affd36-ba36-4465-92c3-671b974c8f52"" />
+
+
+---
+This issue was filed using the Issue Filer extension",bug,0,https://github.com/microsoft/vscode/issues/286123
+Strange rendering of 'Autoapprovaldeniedbyrule`,"Testing #286024
+
+In the settings define:
+```
+{
+    ""chat.tools.terminal.autoApprove"": {
+        ""/^whoami --help$/"": {
+            ""approve"": false,
+            ""matchCommandLine"": true
+        },
+    }
+}
+```
+In chat ask: `what command line arguments does whoami support?`
+
+Note the funny way of rendering the reply
+
+<img width=""598"" height=""343"" alt=""Image"" src=""https://github.com/user-attachments/assets/b45a3107-1f68-40fc-a131-16d9f16638fb"" />",bug,0,https://github.com/microsoft/vscode/issues/286120
+Reopen Closed Repositories > All Repositories does not reopen worktrees,"Testing #285964
+
+The worktrees are listed, but picking ""All Repositories"" does not add them back:
+
+<img width=""623"" height=""147"" alt=""Image"" src=""https://github.com/user-attachments/assets/73b621f1-d0f2-40b0-9885-e0bd4b755ac2"" />",bug,0,https://github.com/microsoft/vscode/issues/286102
+Be more explicit about loosing uncommitted changes when deleting a worktree,"Testing #285964
+
+The message should explicitly say that these changes will be LOST:
+
+<img width=""273"" height=""219"" alt=""Image"" src=""https://github.com/user-attachments/assets/8e8c49b1-b223-4177-b7c7-19579fd5c8e7"" />
+",bug,0,https://github.com/microsoft/vscode/issues/286100
+Agent sessions - back button in the title feedback,"Testing #285958
+
+Back button makes sense when the session is opened in the panel:
+<img width=""428"" height=""179"" alt=""Image"" src=""https://github.com/user-attachments/assets/d20ab27b-d7a1-4f66-bc2d-8e8b113585f7"" />
+
+When a session is opened to the side, it just clears the side area so it does not make much sense there:
+<img width=""684"" height=""171"" alt=""Image"" src=""https://github.com/user-attachments/assets/c4147524-81ec-4038-b590-3ae76a49c390"" />
+
+Have we considered removing the action and only show it when the session is opened in the panel?",bug,0,https://github.com/microsoft/vscode/issues/286098
+Consistent labels: Open in Current Window,"Testing #285964
+
+I prefer when it's explicit in all cases like:
+
+<img width=""334"" height=""220"" alt=""Image"" src=""https://github.com/user-attachments/assets/968530e0-a340-471b-95d3-131133b6e81a"" />
+
+On the subnodes I would change ""Open"" to ""Open in Current Window"":
+
+<img width=""649"" height=""150"" alt=""Image"" src=""https://github.com/user-attachments/assets/8c547f8e-4471-4ab3-ab64-aeea034fc2cf"" />
+
+Same for the tooltip on the inline action with also only shows ""Open"". (I guess that might be the same string.)",bug,0,https://github.com/microsoft/vscode/issues/286094
+Agent sessions - recent list update before session is loaded,"Testing #285958
+
+Have an unread cloud agent session in the recent sessions list. Click on the cloud agent session. 
+Notice in the recording that the recent session list is updated before the session is loaded. 
+
+https://github.com/user-attachments/assets/f2653c38-3ecf-4c22-9492-a3035c17ce92
+",bug,0,https://github.com/microsoft/vscode/issues/286093
+Creating a worktree from a worktree node nests worktree folders,"Testing #285964
+
+Using `+` on a worktree node's worktrees node:
+
+<img width=""474"" height=""205"" alt=""Image"" src=""https://github.com/user-attachments/assets/2851411c-6379-456d-8802-6d549715da79"" />
+
+Starts nesting paths:
+
+<img width=""637"" height=""90"" alt=""Image"" src=""https://github.com/user-attachments/assets/c50f3d29-63d2-457c-9206-33a6081cec0b"" />",bug,0,https://github.com/microsoft/vscode/issues/286083
+Fix Overlapping of Suggestion Text with Prompt in VS Code Terminal,"
+Type: <b>Bug</b>
+
+In the VS Code terminal, the suggestion text overlaps with the prompt, obscuring the display and reducing readability. This affects user experience during command input. Adjust the positioning or layering of suggestions to prevent overlap with the prompt.
+
+VS Code version: Code - Insiders 1.108.0-insider (655abb9afbcac8678f4ff6c13d19e23c5cecebe3, 2026-01-06T05:02:34.944Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+Remote OS version: Linux x64 6.6.87.2-microsoft-standard-WSL2
+
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|13th Gen Intel(R) Core(TM) i5-1340P (16 x 2189)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|undefined|
+|Memory (System)|63.64GB (28.68GB free)|
+|Process Argv|--crash-reporter-id 3df60e69-6e36-46e5-9b3d-020ce9a3ab01|
+|Screen Reader|no|
+|VM|0%|
+
+|Item|Value|
+|---|---|
+|Remote|WSL: Ubuntu-24.04|
+|OS|Linux x64 6.6.87.2-microsoft-standard-WSL2|
+|CPUs|13th Gen Intel(R) Core(TM) i5-1340P (16 x 0)|
+|Memory (System)|31.17GB (20.90GB free)|
+|VM|0%|
+</details><details><summary>Extensions (141)</summary>
+
+Extension|Author (truncated)|Version
+---|---|---
+FreeMarker|dco|0.0.9
+codespaces|Git|1.18.4
+remotehub|Git|0.65.2025081801
+output-colorizer|IBM|0.1.2
+icon-fonts|idl|2.5.4
+jupyter-keymap|ms-|1.1.2
+remote-containers|ms-|0.436.0
+remote-ssh|ms-|0.123.2025121615
+remote-ssh-edit|ms-|0.87.0
+remote-wsl|ms-|0.104.3
+vscode-remote-extensionpack|ms-|0.26.0
+remote-explorer|ms-|0.6.2025081809
+remote-repositories|ms-|0.43.2025081801
+remote-server|ms-|1.6.2025102109
+vscode-serial-monitor|ms-|0.13.251128001
+vscode-speech|ms-|0.16.0
+vscode-speech-language-pack-zh-cn|ms-|0.5.1
+material-icon-theme|PKi|5.30.0
+errorlens|use|3.26.0
+material-theme|zhu|3.19.0
+codesnap|adp|1.3.4
+claude-code|Ant|2.0.75
+markdown-mermaid|bie|1.29.0
+vscode-tailwindcss|bra|0.14.29
+ruff|cha|2025.32.0
+npm-intellisense|chr|1.4.5
+path-intellisense|chr|2.10.0
+vscode-markdownlint|Dav|0.61.1
+vscode-eslint|dba|3.0.21
+dbcode|dbc|1.22.4
+dingtalk-toolkit|Din|0.2.11
+docker|doc|0.18.0
+vscode-mybatisplus-jrebel|Dws|1.0.1
+gitlens|eam|2026.1.304
+EditorConfig|Edi|0.17.4
+magick-image-reader|ely|0.5.0
+prettier-vscode|esb|11.0.2
+dependi|fil|0.7.21
+shell-format|fox|7.2.8
+copilot-chat|Git|0.36.2026010601
+vscode-github-actions|git|0.29.1
+vscode-pull-request-github|Git|0.125.2026010604
+colab|goo|0.1.6
+gc-excelviewer|Gra|4.2.64
+latex-workshop|Jam|10.12.0
+svg|joc|1.5.4
+seamless-agent|jra|0.1.18
+jrebel|JRe|2025.4.2
+vscode-gutter-preview|kis|0.32.2
+vscode-leetcode|Lee|0.18.4
+loccy|loc|1.8.6
+i18n-ally|lok|2.13.1
+loghunter|mar|1.2.8
+rainbow-csv|mec|3.23.0
+pyrefly|met|0.46.3
+vscode-azureresourcegroups|ms-|0.11.7
+vscode-containers|ms-|2.3.0
+vscode-dotnet-runtime|ms-|3.0.0
+playwright|ms-|1.1.17
+black-formatter|ms-|2025.3.11831009
+debugpy|ms-|2025.19.2025121701
+mypy-type-checker|ms-|2025.3.13521012
+pylint|ms-|2025.3.12271016
+python|ms-|2025.21.2026010501
+vscode-pylance|ms-|2025.10.100
+vscode-python-envs|ms-|1.15.13521014
+jupyter|ms-|2025.10.2025121801
+jupyter-keymap|ms-|1.1.2
+jupyter-renderers|ms-|1.3.2025062701
+python-ds-extension-pack|ms-|0.0.1
+vscode-jupyter-cell-tags|ms-|0.1.9
+vscode-jupyter-slideshow|ms-|0.1.6
+remote-wsl-recommender|ms-|0.0.20
+cmake-tools|ms-|1.22.21
+cpptools|ms-|1.30.0
+cpptools-extension-pack|ms-|1.3.1
+debug-value-editor|ms-|0.2.2
+extension-test-runner|ms-|0.0.14
+hexeditor|ms-|1.11.1
+live-server|ms-|0.5.2025091501
+powershell|ms-|2025.5.0
+ts-file-path-support|ms-|1.0.0
+vscode-github-issue-notebooks|ms-|0.0.134
+vscode-serial-monitor|ms-|0.13.251128001
+vscode-typescript-next|ms-|6.0.20260105
+vscode-websearchforcopilot|ms-|0.2.2026010501
+web-editors|ms-|0.3.0
+vsliveshare|ms-|1.0.5959
+windows-ai-studio|ms-|0.26.5
+typescript-explorer|mxs|0.4.2
+neo4j-for-vscode|neo|1.13.0
+indent-rainbow|ode|8.3.1
+vscode-versionlens|pfl|1.22.4
+vscode-css-peek|pra|4.4.3
+inline-html|pus|0.3.10
+geo-data-viewer|Ran|2.6.0
+tmlanguage-syntax-highlighter|Red|2.8.0
+java|red|1.50.0
+vscode-commons|red|0.0.6
+vscode-community-server-connector|red|0.26.20
+vscode-rsp-ui|red|0.24.12
+vscode-xml|red|0.29.2025112508
+vscode-yaml|red|1.19.1
+redis-for-vscode|Red|1.4.0
+omegasheets-vscode|rep|0.2.0
+LiveServer|rit|5.7.9
+claude-dev|sao|3.46.1
+docxreader|Sha|1.3.1
+vscode-fileutils|sle|3.10.3
+sonarlint-vscode|Son|4.39.0
+amp|sou|0.0.1767687087
+opencode|sst|0.0.13
+code-spell-checker|str|4.4.0
+code-spell-checker-cspell-bundled-dictionaries|str|2.0.12
+vscode-stylelint|sty|1.6.0
+even-better-toml|tam|0.21.2
+vscode-ai-foundry|Tea|0.12.5
+shellcheck|tim|0.38.5
+vscode-decompiler|tin|0.1.0
+native-preview|Typ|0.20260106.1
+luna-paint|Tyr|0.17.0
+context7-mcp|Ups|1.0.1
+explorer|vit|1.36.0
+vscode-boot-dev-pack|vmw|0.2.2
+vscode-spring-boot|vmw|2.0.1
+vscode-app-mod-pack|vsc|0.2.4
+vscode-gradle|vsc|3.17.2025111402
+vscode-java-debug|vsc|0.58.2025121609
+vscode-java-dependency|vsc|0.27.0
+vscode-java-pack|vsc|0.30.2025111702
+vscode-java-test|vsc|0.43.2025120408
+vscode-maven|vsc|0.45.2025120808
+vscode-spring-boot-dashboard|vsc|0.14.2025041702
+vscode-spring-initializr|vsc|0.12.0
+volar|Vue|3.2.2
+vscode-wakatime|Wak|25.5.1
+file-stats|Wan|1.1.1
+markdown-notes|Wan|0.1.2
+vscode-import-cost|wix|3.3.0
+pretty-ts-errors|Yoa|0.7.0
+markdown-all-in-one|yzh|3.6.3
+
+(2 theme extensions excluded)
+
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+pythonvspyt551:31249597
+nativeloc1:31118317
+dwcopilot:31158714
+dwoutputs:31242946
+copilot_t_ci:31333650
+g012b348:31231168
+pythonrdcb7:31268811
+pythonpcpt1cf:31399617
+6518g693:31302842
+6abeh943:31336334
+envsactivate1:31349248
+editstats-enabled:31346256
+cloudbuttont:31366566
+todos-1:31405333
+3efgi100_wstrepl:31403338
+use-responses-api:31390341
+2a0ce269:31419921
+terminalsuggestenabled:31421703
+none:31438490
+cp_cls_t_966_ss:31442352
+chatvisible:31417128
+inlinechat_v2_hd992725:31426642
+c0683394:31426860
+find_all_ref_in_bg_t:31442083
+478ah919:31426749
+a5gib710:31434435
+no_request_with_suggest:31438039
+7ig2g208:31429686
+anthropic_thinking_t:31427198
+406hc587_ask_agent:31428392
+cp_cls_c_1081:31433293
+copilot-nes-oct-trt:31432609
+ia-no-proxy-models-svc:31436618
+nes-slash-models-on:31441832
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/286080
+`terminal.integrated.suggest.quickSuggestions` cannot be configured via the settings editor,"Testing #286005
+
+* open settings editor
+* find the `terminal.integrated.suggest.quickSuggestions` setting
+* 🐛 there isn't a simple check box UI despite it being a boolean setting",feature-request,1,https://github.com/microsoft/vscode/issues/286075
+Terminal suggest status doesn't respect keybindings customizations,"Testing #286005
+
+* have the keybindings config below
+* open terminal suggestions
+* :bug: the label and help text still talks about `Tab`
+
+
+```
+// Place your key bindings in this file to override the defaults
+[
+    {
+        ""key"": ""cmd+p"",
+        ""command"": ""workbench.action.terminal.acceptSelectedSuggestion"",
+        ""when"": ""simpleSuggestWidgetHasFocusedSuggestion && terminalFocus && terminalHasBeenCreated && terminalIsOpen && terminalSuggestWidgetVisible || simpleSuggestWidgetHasFocusedSuggestion && terminalFocus && terminalIsOpen && terminalProcessSupported && terminalSuggestWidgetVisible""
+    },
+    {
+        ""key"": ""tab"",
+        ""command"": ""-workbench.action.terminal.acceptSelectedSuggestion"",
+        ""when"": ""simpleSuggestWidgetHasFocusedSuggestion && terminalFocus && terminalHasBeenCreated && terminalIsOpen && terminalSuggestWidgetVisible || simpleSuggestWidgetHasFocusedSuggestion && terminalFocus && terminalIsOpen && terminalProcessSupported && terminalSuggestWidgetVisible""
+    }
+]
+```",bug,0,https://github.com/microsoft/vscode/issues/286068
+"Tweak working ""Click to rotate...""","Testing #286005
+
+* open terminal suggestion
+* hover over the ""Selection Mode"" btn
+* :bug: two issues
+   *  the language is weird, ""Click to rotate...""
+   * the formatting is off
+
+How about just having ""Select to change"" without extra formatting but has final last sentence ",bug,0,https://github.com/microsoft/vscode/issues/286067
+Unable to apply changes from worktree to local workspace,"I am in the `vscode-bisect` repository (https://github.com/Microsoft/vscode-bisect) and asked a background agent to add copyright year to the  files. This worked, but when I click on the button to apply the changes locally it does not work:
+
+```
+2026-01-06 09:22:29.839 [info] > git apply /Users/bpasero/Development/Microsoft/vscode-bisect/.git/ben/copilot-worktree-2026-01-06T08-15-45.patch [6ms]
+2026-01-06 09:22:29.839 [info] error: corrupt patch at line 23
+```
+
+<img width=""1912"" height=""1128"" alt=""Image"" src=""https://github.com/user-attachments/assets/e6bd528e-3202-482e-80a2-cd005cf90ae1"" />",bug,0,https://github.com/microsoft/vscode/issues/286066
+Bogus keybindings warning when pressing Ctrl+Space for the first time,"Testing #286005
+
+* open new instance (`--transient`)
+* open terminal and press `ctrl+space`
+* 🐛 you get a notification about not all keybindings being handled, despite just having handled this keybinding
+
+https://github.com/user-attachments/assets/3f82a341-783f-4e46-ae93-faf0012829b6",bug,0,https://github.com/microsoft/vscode/issues/286065
+Git changes view shows badge when worktrees are used,"I have been using 2 background sessions with work tree and find the badge visible:
+
+<img width=""1912"" height=""1128"" alt=""Image"" src=""https://github.com/user-attachments/assets/6b7d7a09-f8fb-488b-adfe-f46f61e6eee8"" />
+
+But I see no outgoing change, is this a bug?",bug,0,https://github.com/microsoft/vscode/issues/286064
+Terminal file links (Ctrl+Click) not working after latest VS Code update," 
+<img width=""971"" height=""445"" alt=""image"" src=""https://github.com/user-attachments/assets/d6f841ea-731c-483b-bcb8-9b01c40267c0"" />
+
+ 
+ After updating VS Code, file paths shown in the terminal are no longer clickable.
+
+Example:
+
+```
+src/utils/chartmogul/chartmogul.service.ts:53:17 - error TS1345
+```
+
+VS Code shows **“Open file in editor (Ctrl + Click)”**, but clicking or Ctrl+Click does nothing.
+
+This used to work and allowed jumping directly to the file and line.
+
+---
+
+### **Expected**
+
+Ctrl+Click should open the file in the editor at the correct line.
+
+---
+
+### **Actual**
+
+Nothing happens when clicking the file link.
+
+---
+
+### **Environment**
+
+* VS Code (latest)
+* Windows
+* Integrated terminal
+* TypeScript build output
+ 
+",bug,0,https://github.com/microsoft/vscode/issues/286056
+Image slideshow for images/screenshots generated by agents,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+
+When I was using Agent to validate my apps via mcp tools, it often captured screenshots and they were really great artifacts for me to review the intermediate steps. Right now I could hover on the image pills in the chat response but it would so much nicer if I can open them in a custom editor to browse them all.
+
+A quick prototype https://github.com/microsoft/vscode/pull/285615
+
+https://github.com/user-attachments/assets/5e597172-dcfd-40ff-923c-5cb35794ccab
+
+
+cc @sbatten @jo-oikawa for our conversations around artifacts views.",feature-request,1,https://github.com/microsoft/vscode/issues/286049
+Fonts Ligatures are not working,"
+Type: <b>Bug</b>
+
+I have enabled ligature support, but it does not seem to be working. I am using the Monospace Neon font and have enabled the following ligature types: calt, liga, and ss01–10. Here is the setting code.
+`""editor.fontLigatures"": ""'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09','ss10'"",`
+
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Windows_NT x64 10.0.26120
+Modes:
+
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|13th Gen Intel(R) Core(TM) i5-13420H (12 x 2611)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|undefined|
+|Memory (System)|15.73GB (2.63GB free)|
+|Process Argv|--crash-reporter-id 38a3a9a8-f326-4a5c-a431-dc1400c7fa93|
+|Screen Reader|no|
+|VM|31%|
+</details><details><summary>Extensions (37)</summary>
+
+Extension|Author (truncated)|Version
+---|---|---
+vscode-html-css|ecm|2.0.13
+prettier-vscode|esb|11.0.2
+code-runner|for|0.12.2
+copilot-chat|Git|0.35.2
+go|gol|0.52.1
+Ionide-fsharp|Ion|7.30.0
+vscode-containers|ms-|2.3.0
+vscode-docker|ms-|2.0.0
+vscode-language-pack-zh-hans|MS-|1.107.2025121009
+csdevkit|ms-|1.90.2
+csharp|ms-|2.110.4
+dotnet-interactive-vscode|ms-|1.0.6323010
+dotnet-maui|ms-|1.12.15
+vscode-dotnet-pack|ms-|1.0.13
+vscode-dotnet-runtime|ms-|3.0.0
+debugpy|ms-|2025.18.0
+python|ms-|2025.20.1
+vscode-pylance|ms-|2025.10.4
+vscode-python-envs|ms-|1.14.0
+jupyter|ms-|2025.9.1
+jupyter-keymap|ms-|1.1.2
+jupyter-renderers|ms-|1.3.0
+vscode-jupyter-cell-tags|ms-|0.1.9
+vscode-jupyter-slideshow|ms-|0.1.6
+remote-wsl|ms-|0.104.3
+cmake-tools|ms-|1.21.36
+cpptools|ms-|1.29.3
+cpptools-extension-pack|ms-|1.3.1
+powershell|ms-|2025.4.0
+java|red|1.50.0
+vscode-gradle|vsc|3.17.1
+vscode-java-debug|vsc|0.58.4
+vscode-java-dependency|vsc|0.27.0
+vscode-java-pack|vsc|0.30.5
+vscode-java-test|vsc|0.43.2
+vscode-maven|vsc|0.45.1
+volar|Vue|3.2.2
+
+(2 theme extensions excluded)
+
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+binariesv615:30325510
+nativeloc1:31344060
+dwcopilot:31170013
+dwoutputs:31242946
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythonrdcb7:31342333
+6518g693:31436602
+aj953862:31281341
+6abeh943:31336334
+editstats-enabled:31346257
+cloudbuttont:31379625
+todos-1:31405332
+3efgi100_wstrepl:31403338
+use-responses-api:31390855
+je187915:31407605
+3i15c187:31428712
+ec5jj548:31422691
+terminalsuggestenabled:31431119
+cmp-ext-treat:31426748
+cp_cls_c_966_ss:31442353
+copilot6169-c:31440797
+c0683394:31419495
+478ah919:31426797
+ge8j1254_inline_auto_hint_haiku:31427726
+a5gib710:31434435
+38bie571_auto:31426784
+no_request_with_suggest:31435826
+rename_enabled:31436409
+nes-joint-1b:31438278
+7a04d226_do_not_restore_last_panel_session:31438103
+anthropic_thinking_t:31432745
+31c7i317_no_change:31434515
+h0hdh950:31428394
+cp_cls_c_1081:31433293
+copilot-nes-callisto-trt:31434412
+statuswidget:31442215
+nes-slash-models-on:31441832
+nes-set-to-on:31441941
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/286048
+Agent sessions: creating new background session is lagging,"Originally reported here https://github.com/microsoft/vscode/issues/281913
+
+* Creating worktree and the like can be slow, while all of this is happening we don't have a new session in the sessions list
+
+**Slow points**
+* Creating worktree
+* Possibly even starting a new session (this depends on how fast the CLI is, if we spawn a process in future this could be slower)
+* Getting list of sessions and session details for each session could be slow
+(we might want to add telemetry for this and cache some of this in memory)
+E.g. if user starts a new session, then nothing has changed in the list of session, except to include a new item and return previously returned items
+
+**Solutions**
+* List current session in list of sessions and trigger session changed event
+* However this has a drawback, `we dont' have a session id`
+If we use the new untitled session id and return that in the session list, then this needs to be swapped as well.
+I suppose this is fine as thats how the UI works today
+
+**Summary**
+* We might as well always list a new session in the sessions list using the `untitled session id`
+(except in cases where we have worktree change migration etc, as in those cases we start a new session)
+",bug,0,https://github.com/microsoft/vscode/issues/286044
+CLI integration improvements (custom-agent/model/tools),"* [ ] Support Images @DonJayamanne 
+* [ ] Support MCP @DonJayamanne 
+* [ ] Support Custom Agents @DonJayamanne 
+* [ ] Use built in pickers for Agents/Models/Tools @roblourens @DonJayamanne 
+* [ ] Integrating/Launching CLI process",feature-request,1,https://github.com/microsoft/vscode/issues/286028
+Support exportable artifacts selection UI for chat session export,"We need to introduce a UI widget where users can select exportable artifacts via checkboxes so that what is exported is a zip package including all selections.
+- chat session (itself): `chat.json`
+- mcp setting: `mcp.json`
+- extension info: `extensions.json`
+- vscode setting: `settings.json`
+- workspace: `workspace/` folder",feature-request,1,https://github.com/microsoft/vscode/issues/286018
+Terminal gets blocked on false detection of input needed from script that finished,"Have the agent run this script
+
+```
+#!/bin/bash
+
+sleep 1
+echo ""Press A to continue...""
+read -n 1 -s key
+echo ""You pressed: $key""
+echo ""Continuing...""
+sleep 1
+
+echo ""Press B to continue...""
+# read -n 1 -s key2
+# echo ""You pressed: $key2""
+echo ""Continuing...""
+```
+
+It detects the first input request and handles it. Then the script exits, but it keeps waiting and picks up the second message incorrectly. Then I'm stuck in an infinite loop of giving input which just goes to the shell (which is possibly dangerous because i'm running commands unexpectedly).
+
+I got into this situation originally because the agent kept failing to write this script properly (the script above with those lines uncommented would be incorrect). But it's easy to imagine real scenarios that get a false positive for detecting an input request. In any case we shouldn't be waiting around when we know that the script finished.
+
+https://github.com/user-attachments/assets/45cd6721-4af0-443b-bf11-fa838145eb8f
+
+Also this seems to only repro when the terminal is not visible? Or it's a bit random. But I can hit it quite consistently.",bug,0,https://github.com/microsoft/vscode/issues/286014
+Bad wrapping in terminal command,"<img width=""384"" height=""215"" alt=""Image"" src=""https://github.com/user-attachments/assets/2845d1f2-48d6-4431-abc1-7ed33f86d1bc"" />",bug,0,https://github.com/microsoft/vscode/issues/286011
+Override ApplicationInsights proxy support,"ApplicationInsights proxy support interferes with VS Code's proxy support.
+
+---
+
+Issue: Copilot telemetry is not making its way to GitHub for machines which have an env variable called `http_proxy`, even if that env variable is defined correctly. This is caused by [ApplicationInsights](https://github.com/microsoft/ApplicationInsights-node.js/blob/20fbcb87ff9c361cf5fdfe0e500f857c7c813373/Library/Util.ts#L321) proxy support which interferes with the builtin VS Code's proxy support.
+
+---
+
+Verification:
+
+Run local proxy:
+```sh
+docker run -d -p 127.0.0.1:3128:3128 --name proxy ubuntu/squid:latest
+docker exec proxy tail -F /var/log/squid/access.log
+```
+
+Run VS Code with env variables:
+```sh
+# Bash
+http_proxy=http://localhost:3128 https_proxy=http://localhost:3128 code
+# PowerShell
+$env:http_proxy=""http://localhost:3128""; $env:https_proxy=""http://localhost:3128""; code; Remove-Item Env:\http_proxy,Env:\https_proxy
+```
+
+Verify that the proxy logs for `copilot-telemetry.githubusercontent.com` show status `TCP_TUNNEL` and not `TCP_MISS_ABORTED`.
+
+https://github.com/microsoft/vscode-copilot-chat/pull/2713",bug,0,https://github.com/microsoft/vscode/issues/286003
+"Invalid path separators used cause ""editing outside the workspace"" which is incorrect","
+Type: <b>Bug</b>
+
+- Copilot Chat Extension Version:
+- VS Code Version: v1.107
+- OS Version: Windows 11
+- Feature (e.g. agent/edit/ask mode): agent
+- Selected model (e.g. GPT 4.1, Claude 3.7 Sonnet): different models
+- Logs: [at_the_start_i_see_the_logs_below__but_do_not_get__logs.chatreplay.json](https://github.com/user-attachments/files/24439888/at_the_start_i_see_the_logs_below__but_do_not_get__logs.chatreplay.json)
+
+## Description
+I quite often get some confusion from Copilot that it thinks it is editing files outside of my workspace, where it is not. I then have to approve every file edit, which is not helpful.  
+- Even a ""reload window"" does not help. I think I have seen this behavior now in different models as well.
+- Rebooting VS Code does not help when going back to the same session
+- Rebooting and starting a new session also does not work
+
+<img width=""1366"" height=""1168"" alt=""Image"" src=""https://github.com/user-attachments/assets/d766b651-7e78-4116-b005-16b55166f8b2"" />
+
+I did notice this on the panel:
+
+<img width=""480"" height=""88"" alt=""Image"" src=""https://github.com/user-attachments/assets/c79bdaf7-717f-4671-b226-3841c7afe2cc"" />
+
+Which is odd, since it should be a full windows path: `c:\users\RobBos\....`
+
+
+Extension version: 0.35.2
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+
+<details><summary>Logs</summary>
+<pre>
+Trace: Resolved chat model
+Trace: [NES][Triggerer][onDidChangeTextDocument] created
+Trace: [NES][Triggerer][onDidChangeTextDocument] Return: ignored document
+Debug: [context keys] Window state change. Needs offline check: false, active: false, focused: false.
+Trace: CodeSearchChunkSearch.updateIndexedCommitForAllRepos
+Trace: CodeSearchChunkSearch.updateRepoStateFromEndpoint(file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks). Checking status from endpoint.
+Trace: CodeSearchChunkSearch.getRepoIndexStatusFromEndpoint(file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: GithubCodeSearchService::getRemoteIndexState(rajbos/actions-marketplace-checks). Found indexed commit: 03519039f9eb02100d6714d470a27a9ed2a5b430.
+Trace: CodeSearchChunkSearch.updateRepoStateFromEndpoint(file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks). Updating state to Ready.
+Trace: ChatStatusWorkspaceIndexingStatus::updateStatusItem(id=20): starting
+Trace: CodeSearchChunkSearch::initialize#21 started
+Trace: CodeSearchChunkSearch::initialize#21 success. Elapsed 0.06880000000819564
+Trace: ChatStatusWorkspaceIndexingStatus::_writeStatusItem()
+Trace: CodeSearchWorkspaceDiff: refreshing diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Got 10 initially changed files for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Returning [object ResourceSet] changes for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff: Refreshed diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks. New diff count: 10
+Trace: CodeSearchWorkspaceDiff: Refreshed all diffs. New local diffs count: 0
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: false.
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: true.
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: false.
+Debug: [context keys] Window state change. Needs offline check: false, active: false, focused: false.
+Trace: CodeSearchWorkspaceDiff: refreshing diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Got 10 initially changed files for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Returning [object ResourceSet] changes for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff: Refreshed diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks. New diff count: 10
+Trace: CodeSearchWorkspaceDiff: Refreshed all diffs. New local diffs count: 0
+Trace: CodeSearchWorkspaceDiff: refreshing diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Got 10 initially changed files for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Returning [object ResourceSet] changes for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff: Refreshed diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks. New diff count: 10
+Trace: CodeSearchWorkspaceDiff: Refreshed all diffs. New local diffs count: 0
+Trace: CodeSearchChunkSearch.updateIndexedCommitForAllRepos
+Trace: CodeSearchChunkSearch.updateRepoStateFromEndpoint(file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks). Checking status from endpoint.
+Trace: CodeSearchChunkSearch.getRepoIndexStatusFromEndpoint(file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: GithubCodeSearchService::getRemoteIndexState(rajbos/actions-marketplace-checks). Found indexed commit: 03519039f9eb02100d6714d470a27a9ed2a5b430.
+Trace: CodeSearchChunkSearch.updateRepoStateFromEndpoint(file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks). Updating state to Ready.
+Trace: ChatStatusWorkspaceIndexingStatus::updateStatusItem(id=21): starting
+Trace: CodeSearchChunkSearch::initialize#22 started
+Trace: CodeSearchChunkSearch::initialize#22 success. Elapsed 0.12020000000484288
+Trace: ChatStatusWorkspaceIndexingStatus::_writeStatusItem()
+Trace: CodeSearchWorkspaceDiff: refreshing diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Got 10 initially changed files for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff::tryGetDiffedIndexedFiles() Returning [object ResourceSet] changes for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks
+Trace: CodeSearchWorkspaceDiff: Refreshed diff for file:///c%3A/Users/RobBos/code/repos/rajbos/actions-marketplace-checks. New diff count: 10
+Trace: CodeSearchWorkspaceDiff: Refreshed all diffs. New local diffs count: 0
+Debug: [context keys] Window state change. Needs offline check: false, active: false, focused: true.
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: true.
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: false.
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: true.
+</pre>
+</details>
+<details><summary>Request IDs</summary>
+<pre>
+b9c04bba-7a56-4b59-9cd7-89928e1f5029
+faca72de-2599-48cc-bf36-4b1843b49615
+3d34a93c-e54b-4d79-9da9-302c747f4dcb
+7b714496-2818-4e88-9c59-900695cd3551
+ce3808c9-e1d9-47fd-ba78-78eea1ca4b99
+7f9124a8-1ef8-4466-bc6d-9974374772b9
+54a19752-1b1b-4228-a34d-f52aa53806f6
+ca7a6d8b-9b42-474d-8893-dd29e2e9cd58
+37fc4ae9-63aa-4c77-81e0-922d6c1d5ac1
+f2c62714-da79-4e84-99c0-e1a3ed10a9c5
+0d9d1104-bf35-4d79-b8b2-74a372858154
+d34fbd8b-d77c-4eea-8e54-e6d66a01c511
+708b5cc2-1951-4f99-8b13-494352615c31
+7dc404f8-1cd4-4e4f-bf78-a9eed1d5722e
+f9139d1c-4b19-4e3b-b226-de4726d0e780
+89b104b4-52ce-49ad-b31f-84ad70d7714f
+2c69ed54-f90f-480c-ba0a-b0fcb5acf63b
+5d5ffa6a-e4bc-4a8a-92bc-7383ba27a647
+51e9d4d2-d4e4-4bd7-877a-1fbe484ab492
+b7c0bb15-a00c-42b3-bcc3-3427d4607b9f
+17ffb591-cd39-4c7f-9f42-3310725f1c1f
+5176f1b5-70fd-4633-bb50-23fe97bcc32f
+31dd7332-a7be-40d9-a6f2-47f7971c00cd
+74f6afbd-1c71-4e0d-b0eb-7cfa45b2d926
+93fc97d2-1667-4e58-a71b-0121549d0328
+8df88272-58e9-4eeb-a792-8e7e9d55bac1
+312ba306-8320-4835-bac6-f2ab5b64a7ab
+</pre>
+</details><details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|Intel(R) Core(TM) Ultra 7 265H (16 x 3686)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|undefined|
+|Memory (System)|31.46GB (6.82GB free)|
+|Process Argv|--crash-reporter-id bf40f10f-1530-4e61-bd3c-aa48cc914d2f|
+|Screen Reader|no|
+|VM|0%|
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+binariesv615:30325510
+nativeloc1:31344060
+dwcopilot:31170013
+dwoutputs:31242946
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythonrdcb7:31342333
+6518g693:31436602
+aj953862:31281341
+b6b4d950:31327385
+6abeh943:31336334
+cloudbuttont:31379625
+todos-1:31405332
+3efgi100_wstrepl:31403338
+use-responses-api:31390855
+je187915:31401257
+2a0ce269:31428710
+ec5jj548:31422691
+terminalsuggestenabled:31431119
+cmp-ext-treat:31426748
+cp_cls_c_966_ss:31435507
+copilot6169-t2000-control:31440805
+c0683394:31419495
+478ah919:31426797
+ge8j1254_inline_auto_hint_haiku:31431912
+a5gib710:31434435
+5j92g670_sonnet:31434465
+no_request_with_suggest:31435826
+rename_enabled:31436409
+7a04d226_do_not_restore_last_panel_session:31438103
+anthropic_thinking_t:31432745
+cp_cls_c_1081:31433293
+copilot-nes-oct-trt:31432596
+nes-slash-models-on:31441832
+nes-set-to-on:31441941
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/285997
+Feature Request: Open Integrated Terminal at Current File Location from Editor Context Menu,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+
+## 📌 Summary
+
+Add a new option in the editor (code canvas) right-click context menu to open the integrated terminal at the currently active file's directory.
+
+## 🧩 Problem Statement
+
+In VS Code today:
+
+* The editor (main code area) context menu does not provide any way to open a terminal
+* Developers must:
+  1. Switch to Explorer
+  2. Find the file or folder
+  3. Right-click → Open in Terminal or
+  4. Manually `cd` inside the terminal
+
+This breaks flow when working primarily from the editor.
+
+## ✅ Proposed Solution
+
+Add a context-menu item when right-clicking inside an open file in the editor:
+
+**🖥️ Open Integrated Terminal Here**
+
+**Behavior:**
+
+* Opens the integrated terminal
+* Sets the working directory to the parent directory of the currently active file
+* If no terminal exists, create one
+* If terminal exists, reuse or focus it (consistent with current behavior)
+
+## 🔄 Expected Behavior
+
+1. Open any file in the editor
+2. Right-click anywhere in the code canvas
+3. Select ""Open Integrated Terminal Here""
+4. Terminal opens at:
+```bash
+<directory_of_active_file>
+```
+
+## 📐 UX & Edge Cases
+
+* Menu option appears only when a file-backed editor is active
+* Hidden for:
+  * Untitled editors
+  * Read-only virtual documents (unless supported)
+* Should respect:
+  * Default terminal profile
+  * Workspace vs global terminal behavior
+
+## 🛠️ Implementation Notes (Optional)
+
+* Resolve path via the active editor's `URI`
+* Use existing terminal service APIs
+* Similar logic already exists for folder-based terminal actions
+* Command should be reusable for future extensions
+
+## 🌟 Why This Feature Is Valuable
+
+* Keeps developers focused in the editor
+* Saves multiple clicks per workflow
+* Especially useful in monorepos & deeply nested structures
+* Aligns with VS Code's productivity-first UX",feature-request,1,https://github.com/microsoft/vscode/issues/285976
+Directory from last WSL install,"
+Type: <b>Bug</b>
+
+I had a folder in my previous/ last WSL install and not in this one ... But VS code still thinks that directory is here and when I open it, it gives error that it doesn't exists.
+
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+Remote OS version: Linux x64 6.6.87.2-microsoft-standard-WSL2
+
+<details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz (8 x 2712)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|undefined|
+|Memory (System)|31.78GB (24.15GB free)|
+|Process Argv|--crash-reporter-id ac2bfbb7-3033-4598-9f50-017a198385ed|
+|Screen Reader|no|
+|VM|0%|
+
+|Item|Value|
+|---|---|
+|Remote|WSL: Ubuntu-24.04|
+|OS|Linux x64 6.6.87.2-microsoft-standard-WSL2|
+|CPUs|Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz (6 x 0)|
+|Memory (System)|23.47GB (22.59GB free)|
+|VM|0%|
+</details><details><summary>Extensions (8)</summary>
+
+Extension|Author (truncated)|Version
+---|---|---
+remote-wsl|ms-|0.104.3
+debugpy|ms-|2025.18.0
+python|ms-|2025.20.1
+vscode-pylance|ms-|2025.10.4
+vscode-python-envs|ms-|1.14.0
+cmake-tools|ms-|1.21.36
+cpptools|ms-|1.29.3
+cpptools-extension-pack|ms-|1.3.1
+
+(1 theme extensions excluded)
+
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+vswsl492:30256859
+pythonvspyt551:31249599
+binariesv615:30325510
+nativeloc1:31344060
+dwcopilot:31170013
+dwoutputs:31242946
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythonrdcb7:31342333
+6518g693:31436602
+aj953862:31281341
+82j33506:31327384
+6abeh943:31336334
+cloudbuttont:31379625
+todos-1:31405332
+3efgi100_wstrepl:31403338
+use-responses-api:31390855
+je187915:31407605
+2a0ce269:31428710
+ec5jj548:31422691
+terminalsuggestenabled:31431119
+cp_cls_c_966_ss:31435507
+c0683394:31419495
+478ah919:31426797
+a5gib710:31434435
+38bie571_auto:31426784
+7a04d226_do_not_restore_last_panel_session:31438103
+anthropic_thinking_t:31432745
+g4jhe704_grok:31434514
+406hc587_ask_agent:31428393
+cp_cls_c_1081:31433293
+nowdiget:31438323
+nes-set-to-on:31441941
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/285972
+Github Copilot always fails when trying to use pwsh or zsh. It tries to cancel out previous command,"
+Type: <b>Bug</b>
+
+Github Copilot always fails when trying to use pwsh or zsh. It tries to cancel out previous command
+
+~ > сInstall-Module -Name ps2exe -Scope CurrentUser -Force
+сInstall-Module: The term 'сInstall-Module' is not recognized as a name of a cmdlet, function, script file, or executable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+
+Extension version: 0.35.2
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+Remote OS version: Linux x64 6.14.0-1016-oem
+
+<details><summary>Logs</summary>
+<pre>
+Trace: choice {""delta"":{""content"":""ав"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ать д"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ополнительные"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":"" а"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ргументы: `"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""sc"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""rcpy-local."",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""exe --"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""max"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""-fps"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""="",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""30`"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""\n- V"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""BS"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""-фай"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""л боль"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ше не нужен"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""\n\n**Прим"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ечание"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":"":** Windows"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":"" Defender и"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ногда "",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""руг"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ается"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":"" на ps"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""2exe-"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""с"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""г"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ен"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ерированные файл"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ы ("",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""лож"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ное"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":"" ср"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""абатывание)."",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":"" Если это произ"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ой"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""дё"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""т —"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":"" доб"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""авь фай"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""л в ис"",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""ключения."",""role"":""assistant""}}
+Trace: choice {""finish_reason"":""stop"",""delta"":{""content"":null}}
+Info: message 0 returned. finish reason: [stop]
+Debug: message 0 details: finishOffset: [undefined] completionId: [{msg_vrtx_01FcCswcuhxnBZUtHvDDN9UH}] created: [{1767628686}]
+Info: request done: requestId: [3bf92eb2-7a18-4719-86f1-1d8029b02b76] model deployment ID: []
+Info: ccreq:1a03caff.copilotmd | success | claude-opus-4.5 | 10504ms | [panel/editAgent]
+Trace: Resolving chat model
+Trace: Resolved chat model
+</pre>
+</details>
+<details><summary>Request IDs</summary>
+<pre>
+b5256eff-4a17-49d0-b9a6-248cbee27b8f
+311c823c-3852-4948-a8e2-1441fb0d31a9
+79d3054f-fe87-4751-8449-6910766832b8
+100af6bd-9461-491d-a90c-4e548c87173a
+3bf92eb2-7a18-4719-86f1-1d8029b02b76
+</pre>
+</details><details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|AMD Ryzen 7 5800X 8-Core Processor              (16 x 3800)|
+|GPU Status|2d_canvas: enabled<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>trees_in_viz: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled<br>webnn: disabled_off|
+|Load (avg)|undefined|
+|Memory (System)|31.93GB (18.22GB free)|
+|Process Argv|--folder-uri vscode-remote://ssh-remote%2Bleviannserver/root/bots --crash-reporter-id bd316b3c-4964-4c0c-a5ef-2adf0465b1ea|
+|Screen Reader|no|
+|VM|0%|
+
+|Item|Value|
+|---|---|
+|Remote|SSH: leviannserver|
+|OS|Linux x64 6.14.0-1016-oem|
+|CPUs|AMD Ryzen 5 5560U with Radeon Graphics (12 x 2132)|
+|Memory (System)|12.59GB (5.67GB free)|
+|VM|0%|
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368cf:30146710
+binariesv615:30325510
+nativeloc1:31344060
+dwcopilot:31170013
+dwoutputs:31242946
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythonrdcb7:31342333
+6518g693:31436602
+aj953862:31281341
+6abeh943:31336334
+envsdeactivate2:31353495
+cloudbuttont:31379625
+todos-1:31405332
+3efgi100_wstrepl:31403338
+use-responses-api:31390855
+je187915:31401257
+d5i5i512:31428709
+ec5jj548:31422691
+terminalsuggestenabled:31431119
+cmp-ext-treat:31426748
+cp_cls_c_966_ss:31435507
+copilot6169-c:31440797
+c0683394:31419495
+478ah919:31426797
+ge8j1254_inline_auto_hint_haiku:31431912
+a5gib710:31434435
+5j92g670_sonnet:31440727
+no_request_with_suggest:31435826
+rename_enabled:31436409
+7a04d226_do_not_restore_last_panel_session:31438103
+anthropic_thinking_t:31432745
+preserve_tokens:31438091
+cp_cls_c_1081:31433293
+copilot-nes-oct-trt:31432596
+nes-slash-models-on:31441832
+nes-set-to-on:31441941
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/285962
+Ask user tool for github copilot,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+## Summary
+Add an `Ask` tool that lets an agent ask the user a question mid-workflow and **wait** for the reply as a *pause/resume* operation (not a termination), keeping context and orchestration intact.
+
+## Problem
+When an agent needs clarification, the current interaction pattern often turns into a “stop and ask” break in execution. This creates a few practical problems:
+1. **Workflow continuity breaks**: The system behaves as if the run ended, rather than as a step that is waiting for input. This could become an issue if automatic handoffs or other automation are added.
+2. **Less interaction with the user**: To ask for clarifications or simple confirmations, the agent has to stop while it’s working. That may be discouraged by training, biases, or system prompts, which reduces collaboration with the user.
+3. **Context gets muddy**: Stopping for user interaction can clutter the context and lead to duplicated or unnecessary information because of how the chat system works.
+
+## Proposal
+Introduce an `Ask` tool with semantics similar to waiting on a sub-agent:
+- The agent sends a message/query to the user.
+- The run enters a **waiting state**.
+- The user receives the message in chat, with some agent-related buttons disabled and a clear indicator that the agent is paused (not stopped).
+- When the user responds, the run resumes from the same step, with the reply attached as structured input.
+
+## Benefits
+- More agent–user interaction, improving output by aligning better with user intent.
+- Better safety by letting the agent pause for confirmation before making significant changes.
+- A smoother workflow by only pausing when necessary.
+
+## Future opportunities
+This tool enables more autonomous workflows where agents involve the user only when needed by requesting missing information or waiting for confirmation before important steps.
+
+`Ask` is the primitive that makes this possible.",feature-request,1,https://github.com/microsoft/vscode/issues/285952
+Voice recording icon is white and not blue anymore,"Here is how it used to look like:
+
+<img width=""163"" height=""61"" alt=""Image"" src=""https://github.com/user-attachments/assets/a019013a-661e-471a-9cf1-95e9da12fe49"" />
+
+And I think after this change landed https://github.com/microsoft/vscode/pull/283309
+
+<img width=""207"" height=""111"" alt=""Image"" src=""https://github.com/user-attachments/assets/014b5f4c-3350-441e-91c5-84a5dd353d36"" />",bug,0,https://github.com/microsoft/vscode/issues/285946
+Feature Request: Inline display of console.log output next to source code during debugging,"
+Type: <b>Feature Request</b>
+
+### Problem
+
+When debugging JavaScript/TypeScript applications in VS Code, `console.log` output is only available in the Debug Console or Terminal.
+
+For workflows that involve frequent logging, this forces constant context switching between:
+- source code
+- Debug Console
+
+This significantly breaks reading flow, especially when debugging logic-heavy or asynchronous code.
+
+### Proposed Feature
+
+Add an optional feature to display `console.log` output inline next to the source line that produced it, similar to:
+
+```js
+console.log('hello') // hello
+
+
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Windows_NT x64 10.0.19045
+Modes:
+Remote OS version: Linux x64 6.6.87.2-microsoft-standard-WSL2
+
+
+<!-- generated by issue reporter -->",feature-request,1,https://github.com/microsoft/vscode/issues/285945
+Workbench hover appears when focused after quick pick closes,"
+Type: <b>Feature Request</b>
+
+When clicking on a status bar item to open a QuickPick menu and performing an action, the tooltip for that status bar item unexpectedly appears. This behavior occurs across multiple extensions, suggesting it's a VS Code core issue rather than extension-specific. The tooltip should only display on hover, not during QuickPick interactions, to avoid disrupting the user experience and potentially obscuring the QuickPick interface. Consider modifying the status bar interaction logic to suppress tooltip display during active QuickPick operations.
+
+VS Code version: Code - Insiders 1.108.0-insider (1cd32455f84020ce777b4b7d95df0a4b47b07015, 2026-01-05T05:03:42.416Z)
+OS version: Windows_NT x64 10.0.26200
+Modes:
+
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/285931
+Agent unable to read terminal,"
+Type: <b>Bug</b>
+
+Using GPT-4.1.
+
+1. Write the following in chat `#runInTerminal ls`. Click allow when it asks.
+   - Using GPT-4.1, the agent says the following after the command has run: 
+    > The command to list the files and directories in the current workspace root has been executed. If you need to see the output or want to run another command, let me know!
+2. Write the following in chat: `I need to see the output`.
+3. Bug: The AI responds: ""I was unable to retrieve the output due to an invalid terminal ID.""
+
+<img width=""400"" height=""639"" alt=""Image"" src=""https://github.com/user-attachments/assets/d9813fb3-2430-46d1-b424-beb5e104cc70"" />
+
+(The reference used by the AI is AGENTS.md, but shouldn't have anything to do with this)
+
+Maybe related to https://github.com/microsoft/vscode/issues/254447 (Agent mode hangs when running terminal command).
+Here is the shell integration information @Tyriar asked for in https://github.com/microsoft/vscode/issues/254447#issuecomment-3108885324:
+
+Shell integration: Rich
+
+* Shell type: bash
+* Current working directory: /home/<MY_USERNAME>/repos/<MY_REPO_NAME>
+* Seen sequences: P, E, C, D
+* Prompt input: setGitPrompt
+
+Extension version: 0.35.2
+VS Code version: Code 1.107.1 (994fd12f8d3a5aa16f17d42c041e5809167e845a, 2025-12-17T14:15:14.850Z)
+OS version: Linux x64 6.8.0-90-generic
+Modes:
+
+I have also tested on 1.108.0-insider. Chat/terminal integration seems completely broken in that version. Chat hangs forever.
+
+<details><summary>Logs</summary>
+<pre>
+Debug: chat model gpt-4.1
+Debug: GH request id: 275E:1E6E9E:2730DE8:31B7337:695BA67C
+Debug: request.response: [{""type"":""ChatCompletions""}], took 1045 ms
+Trace: choice {""delta"":{""content"":"""",""role"":""assistant""}}
+Trace: choice {""delta"":{""content"":""I""}}
+Trace: choice {""delta"":{""content"":"" was""}}
+Trace: choice {""delta"":{""content"":"" unable""}}
+Trace: choice {""delta"":{""content"":"" to""}}
+Trace: choice {""delta"":{""content"":"" retrieve""}}
+Trace: choice {""delta"":{""content"":"" the""}}
+Trace: choice {""delta"":{""content"":"" output""}}
+Trace: choice {""delta"":{""content"":"" due""}}
+Trace: choice {""delta"":{""content"":"" to""}}
+Trace: choice {""delta"":{""content"":"" an""}}
+Trace: choice {""delta"":{""content"":"" invalid""}}
+Trace: choice {""delta"":{""content"":"" terminal""}}
+Trace: choice {""delta"":{""content"":"" ID""}}
+Trace: choice {""delta"":{""content"":"".""}}
+Trace: choice {""delta"":{""content"":"" Please""}}
+Trace: choice {""delta"":{""content"":"" let""}}
+Trace: choice {""delta"":{""content"":"" me""}}
+Trace: choice {""delta"":{""content"":"" know""}}
+Trace: choice {""delta"":{""content"":"" if""}}
+Trace: choice {""delta"":{""content"":"" you""}}
+Trace: choice {""delta"":{""content"":"" want""}}
+Trace: choice {""delta"":{""content"":"" to""}}
+Trace: choice {""delta"":{""content"":"" rer""}}
+Trace: choice {""delta"":{""content"":""un""}}
+Trace: choice {""delta"":{""content"":"" the""}}
+Trace: choice {""delta"":{""content"":"" command""}}
+Trace: choice {""delta"":{""content"":"" or""}}
+Trace: choice {""delta"":{""content"":"" if""}}
+Trace: choice {""delta"":{""content"":"" you""}}
+Trace: choice {""delta"":{""content"":"" need""}}
+Trace: choice {""delta"":{""content"":"" the""}}
+Trace: choice {""delta"":{""content"":"" output""}}
+Trace: choice {""delta"":{""content"":"" in""}}
+Trace: choice {""delta"":{""content"":"" a""}}
+Trace: choice {""delta"":{""content"":"" different""}}
+Trace: choice {""delta"":{""content"":"" way""}}
+Trace: choice {""delta"":{""content"":"".""}}
+Trace: choice {""finish_reason"":""stop"",""delta"":{""content"":null}}
+Info: message 0 returned. finish reason: [stop]
+Debug: message 0 details: finishOffset: [undefined] completionId: [{chatcmpl-CudSPv0MSS0Z9V3LU8MhFeVe1Egzj}] created: [{1767614077}]
+Info: request done: requestId: [910d13b3-3806-42f7-9536-ab85cb47a767] model deployment ID: []
+Info: ccreq:6f834d9f.copilotmd | success | gpt-4.1 -> gpt-4.1-2025-04-14 | 1507ms | [panel/editAgent]
+Trace: Resolving chat model
+Trace: Resolved chat model
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: false.
+Debug: [context keys] Window state change. Needs offline check: false, active: true, focused: true.
+</pre>
+</details>
+<details><summary>Request IDs</summary>
+<pre>
+5673315f-532e-4f08-bb5b-0215cc377bff
+7a345d96-1ef5-4077-bf92-9ed8f05f5054
+910d13b3-3806-42f7-9536-ab85cb47a767
+</pre>
+</details><details>
+<summary>System Info</summary>
+
+|Item|Value|
+|---|---|
+|CPUs|Intel(R) Xeon(R) Gold 6248 CPU @ 2.50GHz (8 x 0)|
+|GPU Status|2d_canvas: unavailable_software<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: disabled_software<br>multiple_raster_threads: enabled_on<br>opengl: disabled_off<br>rasterization: disabled_software<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>trees_in_viz: disabled_off<br>video_decode: disabled_software<br>video_encode: disabled_software<br>vulkan: disabled_off<br>webgl: unavailable_software<br>webgl2: unavailable_software<br>webgpu: disabled_off<br>webnn: unavailable_software|
+|Load (avg)|1, 1, 1|
+|Memory (System)|31.30GB (24.67GB free)|
+|Process Argv|. --crash-reporter-id 0dee2610-e827-47ff-ad4e-8d46eb7dc7dd|
+|Screen Reader|no|
+|VM|40%|
+|DESKTOP_SESSION|ubuntu|
+|XDG_CURRENT_DESKTOP|ubuntu:GNOME|
+|XDG_SESSION_DESKTOP|ubuntu|
+|XDG_SESSION_TYPE|x11|
+</details><details>
+<summary>A/B Experiments</summary>
+
+```
+vsliv368:30146709
+binariesv615:30325510
+nativeloc1:31344060
+dwcopilot:31170013
+dwoutputs:31242946
+copilot_t_ci:31333650
+e5gg6876:31282496
+pythonrdcb7:31342333
+6518g693:31436602
+aj953862:31281341
+6abeh943:31336334
+cloudbuttont:31379625
+todos-1:31405332
+42190218_ostrepl:31403339
+use-responses-api:31390855
+je187915:31401257
+2a0ce269:31428710
+ec5jj548:31422691
+terminalsuggestenabled:31431119
+cmp-ext-treat:31426748
+cp_cls_c_966_ss:31435507
+copilot6169-t2000-control:31440805
+c0683394:31419495
+478ah919:31426797
+ge8j1254_inline_auto_hint_haiku:31431912
+a5gib710:31434435
+5j92g670_sonnet:31434465
+no_request_with_suggest:31435826
+rename_enabled:31436409
+nes-joint-1a:31438279
+7a04d226_do_not_restore_last_panel_session:31438103
+anthropic_thinking_t:31432745
+406hc587_ask_agent:31428393
+cp_cls_c_1081:31433293
+copilot-nes-oct-trt:31432596
+nes-slash-models-on:31441832
+nes-set-to-on:31441941
+
+```
+
+</details>
+
+<!-- generated by issue reporter -->",bug,0,https://github.com/microsoft/vscode/issues/285926
+Make it more obvious when auto approval is denied by a false rule,"Repro:
+
+1. Ask chat something like `kill process 1234 in terminal`
+2. Auto approve will deny it and present a special set of actions in the dropdown, but the only way to check why is by looking at the logs
+
+Related: https://github.com/microsoft/vscode/issues/276756",feature-request,1,https://github.com/microsoft/vscode/issues/285921
+Copilot Chat fails in Jupyter Notebook with “Unsupported kind 'markdown'” when Notebook Alternative Format is set to markdown,"<!-- Please search existing issues to avoid creating duplicates -->
+<!-- Please attach logs to help us diagnose your issue -->
+
+- Copilot Chat Extension Version: 0.35.2
+- VS Code Version: 1.108.0-insider (system setup)
+- OS Version: Windows_NT x64 10.0.26100
+- Feature (e.g. agent/edit/ask mode):
+- Selected model (e.g. GPT 4.1, Claude 3.7 Sonnet):
+- Logs:
+
+Steps to Reproduce:
+
+1. Open a `.ipynb` Jupyter Notebook in VS Code
+2. Ensure the following setting is enabled:
+   - `GitHub > Copilot > Chat > Notebook: Alternative Format = markdown`
+3. Select or reference a Markdown cell, or ask a question that uses notebook context
+4. Send a message via Copilot Chat
+
+---
+
+### Actual Result
+
+Copilot Chat fails immediately with an error similar to:
+
+<img width=""750"" height=""246"" alt=""Image"" src=""https://github.com/user-attachments/assets/9c2e37f3-d012-4c18-a006-9f41bd3ccf73"" />
+
+<img width=""840"" height=""891"" alt=""Image"" src=""https://github.com/user-attachments/assets/0a4e5467-b945-4459-8511-989e03753b61"" />
+
+",bug,0,https://github.com/microsoft/vscode/issues/285902
+Flicker of variable line heights when inserting new line,"- Open VS Code file debugProcess.ts
+- Set the settings
+
+```
+""editor.tokenColorCustomizations"": {
+        ""textMateRules"": [
+            {
+                ""scope"": ""entity.name.type.class"",
+                ""settings"": {
+                    ""fontSize"": ""50px"",
+                    ""lineHeight"": 60
+                }
+            }
+        ]
+    },
+```
+
+- Set the cursor at the beginning of the line with the name `DebugProcessContribution`
+- Add a new line
+- Notice the flicker that is caused ",bug,0,https://github.com/microsoft/vscode/issues/285900
+[regression] Suggest status bar lost their keybinding labels,"* enable suggest status bar
+* open suggestion
+* 🐛 the commands are now rendered without their keybindings
+
+Very likely because of https://github.com/microsoft/vscode/pull/285060
+
+<img width=""359"" height=""227"" alt=""Image"" src=""https://github.com/user-attachments/assets/622d9a47-23a8-4614-b539-fb4b645afdd2"" />",bug,0,https://github.com/microsoft/vscode/issues/285886
+vscode  code-1.107.1-1765982492.el8.x86_64.rpm rocky linux 8.9 in vmware  crash,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+- VS Code Version:  code-1.107.1-1765982492.el8.x86_64
+- OS Version: rocky linux 8.9 
+
+Steps to Reproduce:
+
+1.  rocky linux 8.9 vmware 
+2.  vmvare version is 17.6.3 build-24583834
+3. vscode  code-1.107.1-1765982492.el8.x86_64.rpm 
+4.  when open folder  or open other page vscode will crash, 
+5.  how can i debug know why vscode crash 
+6. 
+
+<img width=""308"" height=""336"" alt=""Image"" src=""https://github.com/user-attachments/assets/2291c11d-0f22-4907-85e2-3d8d0044c274"" />
+
+7. us this sudo code --no-sandbox --user-data-dir can working
+8. use this code --no-sandbox --user-data-dir  cannot working
+9. so why cannot working in rocky linux 8.9",bug,0,https://github.com/microsoft/vscode/issues/285877
+Custom Agent references multiple tools using 'search',"<!-- Please search existing issues to avoid creating duplicates -->
+<!-- Please attach logs to help us diagnose your issue -->
+
+- Copilot Chat Extension Version: 0.35.2
+- VS Code Version:1.107.1 (Universal)
+- OS Version:26.2 (25C56)
+- Feature (e.g. agent/edit/ask mode): custom agent
+- Selected model (e.g. GPT 4.1, Claude 3.7 Sonnet): GPT-5.2
+- Logs:
+
+Steps to Reproduce:
+
+1.Install `Azure MCP Server` extension, I installed `1.0.1`
+1.Create a new custom agent
+1.Configure tools in the custom agent, as `tools: [search]`
+1.You will see the following:
+
+<img width=""600"" height=""245"" alt=""Image"" src=""https://github.com/user-attachments/assets/efcf645c-9505-4e12-9577-4a0c42218532"" />
+
+<img width=""595"" height=""327"" alt=""Image"" src=""https://github.com/user-attachments/assets/681bc312-29dc-49fb-b783-8a842ae2c213"" />
+",bug,0,https://github.com/microsoft/vscode/issues/285872
+Cell editors overlap on scroll,"Create following notebook 
+
+<details>
+  <summary>ipynb</summary>
+  
+```json
+{
+ ""cells"": [
+  {
+   ""cell_type"": ""code"",
+   ""execution_count"": null,
+   ""metadata"": {},
+   ""outputs"": [],
+   ""source"": [
+    ""1""
+   ]
+  },
+  {
+   ""cell_type"": ""code"",
+   ""execution_count"": null,
+   ""metadata"": {},
+   ""outputs"": [],
+   ""source"": [
+    ""2""
+   ]
+  },
+  {
+   ""cell_type"": ""code"",
+   ""execution_count"": null,
+   ""metadata"": {},
+   ""outputs"": [],
+   ""source"": [
+    ""3""
+   ]
+  },
+  {
+   ""cell_type"": ""code"",
+   ""execution_count"": null,
+   ""metadata"": {},
+   ""outputs"": [],
+   ""source"": [
+    ""4\n"",
+    ""4\n"",
+    ""4\n"",
+    ""4""
+   ]
+  },
+  {
+   ""cell_type"": ""code"",
+   ""execution_count"": null,
+   ""metadata"": {},
+   ""outputs"": [],
+   ""source"": [
+    ""5""
+   ]
+  },
+  {
+   ""cell_type"": ""code"",
+   ""execution_count"": null,
+   ""metadata"": {},
+   ""outputs"": [],
+   ""source"": [
+    ""6\n"",
+    ""\n"",
+    ""\n"",
+    ""\n"",
+    ""\n"",
+    ""\n"",
+    ""\n"",
+    ""\n"",
+    ""6""
+   ]
+  },
+  {
+   ""cell_type"": ""code"",
+   ""execution_count"": null,
+   ""metadata"": {},
+   ""outputs"": [],
+   ""source"": [
+    ""7""
+   ]
+  }
+ ],
+ ""metadata"": {
+  ""language_info"": {
+   ""name"": ""python""
+  }
+ },
+ ""nbformat"": 4,
+ ""nbformat_minor"": 2
+}
+
+```
+</details>
+
+
+* Open notebook and resize vscode so you can only see first 3 cells fully
+* Close and re-reopen notebook
+* Scroll slowly and all cells will be sized correctly
+* Scroll very very quickly up and down, and eventually cell 3 will overlap cell 4.
+
+<img width=""1008"" height=""346"" alt=""Image"" src=""https://github.com/user-attachments/assets/3247ca00-a826-4f34-b94f-837c1fa97c99"" />
+
+Logs when notebook is opened
+[logsOnOpen.md](https://github.com/user-attachments/files/24427727/logsOnOpen.md)
+
+Logs when I scroll very very quickly and cell 3 & 4 overlap as per screenshot (Note: slow scrolling doesn't repro this issue)
+[scrollVeryFast.md](https://github.com/user-attachments/files/24427743/scrollVeryFast.md)",bug,0,https://github.com/microsoft/vscode/issues/285866
+Notebook cell incorrectly sized on load,"* Create a notebook with two cells, second cell is empty, and first cell has the following code
+```
+data = {'name': ['Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David'],
+        'age': [25, 30, 35, 40]}
+df = pd.DataFrame(data)
+
+df2 = pd.DataFrame({'name': ['Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob', 'Charlie', 'David'],
+                    'age': [25, 30, 35, 40]})
+```
+* Open notebook and ensure the VS Code window width is small enough to cause text to get wrapped.
+There are 6 lines in above code, resize editor to ensure you get the text wrapped...
+* Close the notebook and re-open it
+* The size of the first cell is wrong
+* Scroll all the way down (untill cell 1 is out of view) and then up
+* Now the height of the cell 1 is correct
+
+See below images for before and after.
+
+# Before
+<img width=""1006"" height=""611"" alt=""Image"" src=""https://github.com/user-attachments/assets/514359da-8fa4-4e3e-a076-c239bc325671"" />
+
+# After
+<img width=""1011"" height=""611"" alt=""Image"" src=""https://github.com/user-attachments/assets/cfd57b00-6ccd-43b7-96cf-a72e15e80ad4"" />",bug,0,https://github.com/microsoft/vscode/issues/285862
+/clear should archive current session and start a new one,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes/No
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+
+
+Currently the plus button creates a new session and keeps the current one running in the background. But `/clear` is an explicit action to clear content, so it should archive the current session rather than just pushing it to the background IMHO.
+",feature-request,1,https://github.com/microsoft/vscode/issues/285854
+Clear Chat view when archiving active session,"<!-- ⚠️⚠️ Do Not Delete This! bug_report_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- 🕮 Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->
+<!-- 🔎 Search existing issues to avoid creating duplicates. -->
+<!-- 🧪 Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->
+<!-- 💡 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->
+<!-- 🔧 Launch with `code --disable-extensions` to check. -->
+Does this issue occur when all extensions are disabled?: Yes/No
+
+<!-- 🪓 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->
+<!-- 📣 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->
+
+When chat view and session list view are side by side, archiving the active session from the list makes the item disappear from the list, but the chat view still shows the archived session content. More natural behavior would be to clear the chat view when the session is archived.
+
+Typical workflow:
+
+- Start a new session to run an end to end testing with MCP tools
+- When it finishes and passes, I'll hit the archive button to move on to new task
+- The chat view is then cleared (expected behavior)",feature-request,1,https://github.com/microsoft/vscode/issues/285853
+Allow writing prompt with voice when session is in progress,"When a chat session is running, the voice/mic button gets disabled but the text input box stays enabled. I can still type my next prompt while waiting for the response but I can't use Voice to archive that. The voice button should work the same way IMHO.
+",feature-request,1,https://github.com/microsoft/vscode/issues/285852
+Inconsistent Naming: Voice vs Dictation,"Voice related commands currently use inconsistent terminology across different components, making features hard to discover.
+
+Current state:
+- Chat commands use ""Voice"": ""Chat: Inline Voice Chat"", ""Chat: Quick Voice Chat"", etc.
+- Editor command: ""Voice: Start Dictation in Editor""
+- Terminal command: ""Terminal: Start Dictation in Terminal""
+
+As a user I would search for Voice as that's what the hover of the mic button teaches me.
+",bug,0,https://github.com/microsoft/vscode/issues/285851
+Surface pinned editor state on hover when navigating files via Explorer,"### What this PR does
+
+VS Code clearly indicates pinned files in the editor tab strip, where pinned tabs are visually distinct and ordered predictably. This works well while working within the editor area.
+
+However, when navigating files primarily through the Explorer, the pinned state of a file that is already open in an editor group is not visible at all.
+
+- When a file is pinned in the editor:
+- The pinned state is visible only in the editor tab
+- The same file, when viewed in the Explorer, appears identical to any other file
+
+There is no way to tell (even on hover) that this file is already pinned and acting as a stable editor tab
+
+This creates a disconnect between the editor and the Explorer, especially when users rely on the sidebar for navigation.
+
+Would it be reasonable to surface the pinned state only on hover in the Explorer, without adding persistent icons or changing layout?
+
+### For example:
+
+On hovering a file in the Explorer that is currently pinned in an editor group
+Show a subtle hover indication such as:
+A tooltip: “Pinned”
+This keeps the Explorer visually unchanged by default while making pinned state discoverable during navigation.
+
+
+### Visual reference
+
+![Image](https://github.com/user-attachments/assets/682a883b-4184-4d11-8b01-d7a8d8364c53)
+
+If this sounds reasonable, I’m happy to try implementing it.
+
+<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+",feature-request,1,https://github.com/microsoft/vscode/issues/285850
+Allow Pin or Favorite Branches in Git Checkout Panel,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+<!-- Describe the feature you'd like. -->
+### Feature Request
+
+In the Git: Checkout to... QuickPick, it would be very useful to be able to pin or visually distinguish important branches such as `main`, `develop`, or long-living release branches.
+
+### Problem
+In repositories with many branches, important branches get lost in the list. Users frequently need to scroll or search for `main` / `develop`, even though these branches are used constantly.
+
+### Proposed Solution
+- Allow pinning/favoriting branches so they always appear at the top
+- Allow simple visual distinction (icon, color, or group header)
+
+### Why this matters
+This would significantly improve daily workflow for users working with many branches and aligns with features available in other popular IDEs.
+
+<img width=""834"" height=""401"" alt=""Image"" src=""https://github.com/user-attachments/assets/3cc58659-0274-43b2-9c88-528588334eae"" />",feature-request,1,https://github.com/microsoft/vscode/issues/285828
+Exclude extensions with auto updates disabled from available updates on badge,"<!-- ⚠️⚠️ Do Not Delete This! feature_request_template ⚠️⚠️ -->
+<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->
+<!-- Please search existing issues to avoid creating duplicates. -->
+
+**Short description**
+Introduce a setting to suppress including extensions which have updates available **AND** automatic updates disabled from the badge on the _Extensions_ icon in the _Activity Bar_ which shows the number of available updates.
+
+**Full description**
+When there are updates available for installed extensions VS Code displays a badge on the _Extensions_ icon in the _Activity Bar_ with the number of extensions with pending updates. Usually this is a helpful visual indicator but it can have the opposite effect for extensions which have had automatic updates disabled. In this scenario, it's common that all extensions are up-to-date except for those that have been deliberately opted-out (i.e. the badge is showing just the number of extensions with automatic updates disabled which have available updates).
+
+This issue is to request the addition of a setting which allows for excluding extensions with automatic updates disabled from the calculation of the number of extensions with pending updates shown as a badge on the _Extensions_ icon. Note this only pertains to the badge; available updates for all extensions, including those with automatic updates disabled, would still be shown as usual when the _Extensions_ pane is focused.
+
+**Rationale**
+A common reason for disabling automatic updates for an extension is due to a serious bug in a newer version which would break important functionality. Another still is that broader changes to the workspace are required before the extension can be updated. In these scenarios, the available updates badge only serves as an annoying distraction as the updates can't (or shouldn't) be performed.",feature-request,1,https://github.com/microsoft/vscode/issues/285779
+Sticky scroll showing in git diff editor,"This was in the alt button (bash in a WSL window using vim as git commit editor), but it's showing the scroll bar:
+
+<img width=""1609"" height=""415"" alt=""Image"" src=""https://github.com/user-attachments/assets/514f8c2e-4ff2-4f42-8ce0-bed8e35ce587"" />
+
+When scrolled up:
+
+<img width=""1605"" height=""408"" alt=""Image"" src=""https://github.com/user-attachments/assets/5dec87ca-6c87-40c5-91d0-6e3f4e0851c9"" />",bug,0,https://github.com/microsoft/vscode/issues/285762
+Auto approve `git ... ls-files` by default,"Examples that needed manual approval:
+
+<img width=""560"" height=""229"" alt=""Image"" src=""https://github.com/user-attachments/assets/10a30aad-40ec-4b80-9d0f-251956ae2643"" />",feature-request,1,https://github.com/microsoft/vscode/issues/285744
+GitHub Copilot restore still shows modifications and breaks on accept,"1. Request that the LLM modify multiple files and add files as well.
+2. Ask the LLM some follow-up questions.
+3. Restore the checkpoint on the line before step 1 above.
+
+The files will be reset, the later chat conversation will be removed, and the text of prompt 1 above will be placed in the current prompt input field.
+
+**Issue 1:** The modified files still have their modified symbol (a filled circle) in their tabs, with the option to ""Keep"" or ""Undo"". They were reset—there should be nothing to keep or undo. (This confusing part is related to the #282069, which is similarly confusing.)
+
+4. Go to the chat prompt in the side panel and erase the current prompt input field that was filled.
+5. Hit `<Ctrl+Enter>` to accept all the ""changes"" (even though there are no real changes at this point).
+
+**Expected:** The modified symbol disappears from the tabs.
+
+**Issue 2**: A notification ""Cannot read properties of undefined (reading 'toString')"" appears in the bottom, right-hand corner of the screen.
+
+```
+Version: 1.107.1 (user setup)
+Commit: 994fd12f8d3a5aa16f17d42c041e5809167e845a
+Date: 2025-12-17T14:15:14.850Z
+Electron: 39.2.3
+ElectronBuildId: 12895514
+Chromium: 142.0.7444.175
+Node.js: 22.21.1
+V8: 14.2.231.21-electron.0
+OS: Windows_NT x64 10.0.26200
+```",bug,0,https://github.com/microsoft/vscode/issues/285733
