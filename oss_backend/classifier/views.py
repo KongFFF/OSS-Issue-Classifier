@@ -187,4 +187,3 @@ def scan_repo(request):
         return JsonResponse({'results': results, 'repo': repo_name})
 
     return JsonResponse({'error': 'Method not allowed'}, status=405)
-# 检查一下逻辑
