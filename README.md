@@ -17,7 +17,7 @@
 ##  核心功能 (Features)
 
 - **AI 智能分拣**：利用微调后的 CodeBERT 模型，准确率达 82.6%。
-- ** 仓库一键扫描 (Repo Scanner)**：
+- **仓库一键扫描 (Repo Scanner)**：
   - 支持输入 GitHub 仓库地址（如 `microsoft/vscode`）。
   - 智能分页与流式过滤，自动剔除 Pull Request。
   - 实时生成分类报表与置信度分析。
