@@ -97,12 +97,6 @@ OSS-Issue-Classifier/
 2. 扫描结果与查重警告
 ![alt text](docs/image_2.png)
 
-### 作者 
-Developer: [房文博]
-
-Email: [3192972081@qq.com]
-
-Date: 2026-01
 
 ### 许可证 
 本项目采用 MIT License 开源许可证。
